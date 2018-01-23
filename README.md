@@ -15,6 +15,10 @@ If you want to make code commits then download the dev branch.
 
 ```git checkout development```
 
+Rename the `.env-example` file to `.env` along with you db info
+
+```mv "old location" "new location"```
+
 Lastly go ahead and install the required packages
 
 ```composer install```
