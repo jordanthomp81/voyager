@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('home');
+    return view('welcome');
 });
 
 Route::get('/login', function () {
@@ -70,3 +70,7 @@ Route::get('/media/{mediaId}', function ($mediaId) {
 Route::get('/team', function () {
     return view('team');
 });
+
+Auth::routes();
+
+Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
