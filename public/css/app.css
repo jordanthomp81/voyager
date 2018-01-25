@@ -8350,10 +8350,6 @@ button.close {
   }
 }
 
-body {
-  overflow: hidden;
-}
-
 .login-container {
   width: 100vw;
   height: 100vh;
@@ -8365,6 +8361,7 @@ body {
 }
 
 .login-container .login-sub-container {
+  overflow: hidden;
   border-top: 4px solid #38C2F1;
   position: absolute;
   width: 30%;
@@ -8499,6 +8496,7 @@ body {
 }
 
 .create-account-container .create-account-sub-container {
+  overflow: hidden;
   border-top: 4px solid #38C2F1;
   position: absolute;
   width: 30%;
