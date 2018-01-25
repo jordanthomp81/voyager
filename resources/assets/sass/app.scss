@@ -1,14 +1,17 @@
 
 // Fonts
-@import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
+// @import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
 
 // Variables
-@import "variables";
+// @import "variables";
 
 // Bootstrap
 @import "~bootstrap-sass/assets/stylesheets/bootstrap";
 
-// General
-@import "login";
-@import "create-account";
+// CSS Reset
 @import "reset";
+
+// Login
+@import "login";
+@import "reset-pass";
+@import "create-account";

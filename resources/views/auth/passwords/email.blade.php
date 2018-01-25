@@ -1,47 +1,28 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Reset Password</div>
+<div class="reset-password-container">
 
-                <div class="panel-body">
-                    @if (session('status'))
-                        <div class="alert alert-success">
-                            {{ session('status') }}
-                        </div>
-                    @endif
+  <div class="reset-password-sub-container">
 
-                    <form class="form-horizontal" method="POST" action="{{ route('password.email') }}">
-                        {{ csrf_field() }}
+    <a id="reset-password-main-logo" href="http://localhost:8000"><img src="https://image.ibb.co/d3Jt3b/voyager_logo_2x.png" width="230px" height="auto" alt="" /></a>
 
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
+    <h1>Reset Password</h1>
 
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
+    <form class="form-horizontal" method="POST" action="{{ route('password.email') }}">
 
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
+        {{ csrf_field() }}
 
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Send Password Reset Link
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
+        <div class="reset-password-email-input-container">
+          <input id="reset-password-email-input" placeholder="Email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
         </div>
-    </div>
+
+
+        <button type="submit" class="reset-pass-btn">Reset</button>
+
+    </form>
+
+  </div>
+
 </div>
 @endsection

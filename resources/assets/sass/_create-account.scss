@@ -34,18 +34,6 @@
       font-family: 'Roboto', sans-serif;
     }
 
-    .register-btn {
-      margin-top: 25px;
-      background-color: #3EC0EE;
-      border: 1px solid #3EC0EE;
-      color: white;
-      padding: 13px 40px;
-      margin-left: 50%;
-      transform: translateX(-50%);
-      font-size: 19px;
-      font-family: Roboto;
-    }
-
     .create-account-name-input-container {
       display: inline-block;
       margin-left: 50%;
@@ -187,6 +175,18 @@
           outline: none;
         }
       }
+    }
+
+    .register-btn {
+      margin-top: 25px;
+      background-color: #3EC0EE;
+      border: 1px solid #3EC0EE;
+      color: white;
+      padding: 13px 40px;
+      margin-left: 50%;
+      transform: translateX(-50%);
+      font-size: 19px;
+      font-family: Roboto;
     }
   }
 }
