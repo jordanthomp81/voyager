@@ -10,9 +10,11 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::get('/test', function() {
+  return env('APP_LOG');
+});
 Route::get('/', function () {
-    return view('home');
+    return view('welcome');
 });
 
 Route::get('/login', function () {
@@ -70,3 +72,7 @@ Route::get('/media/{mediaId}', function ($mediaId) {
 Route::get('/team', function () {
     return view('team');
 });
+
+Auth::routes();
+
+Route::get('/dashboard', 'DashboardController@index')->name('dashboard');

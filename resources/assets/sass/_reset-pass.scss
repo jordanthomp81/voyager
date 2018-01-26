@@ -1,0 +1,84 @@
+.reset-password-container {
+  width: 100vw;
+  height: 100vh;
+  background-image: url('http://image.ibb.co/cQJ0jG/mountain_3094974_1920.jpg');
+  background-repeat: no-repeat;
+  background-position: center left;
+  background-size: cover;
+  position: relative;
+
+  .reset-password-sub-container {
+    overflow: hidden;
+    border-top: 4px solid #38C2F1;
+    position: absolute;
+    width: 30%;
+    height: 100%;
+    background-color: white;
+    top: 0px;
+    right: 0px;
+
+    #reset-password-main-logo {
+      display: inline-block;
+      margin-top: 100px;
+      margin-left: 50%;
+      transform: translateX(-50%);
+    }
+
+    h1 {
+      margin-top: 100px;
+      width: 70%;
+      margin-left: 50%;
+      transform: translateX(-50%);
+      font-size: 23px;
+      margin-bottom: 25px;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    .reset-password-email-input-container {
+      display: inline-block;
+      margin-left: 50%;
+      transform: translateX(-50%);
+      width: 70%;
+      position: relative;
+
+      &::after {
+        position: absolute;
+        content: url('data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTguMS4xLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDE0IDE0IiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCAxNCAxNDsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHdpZHRoPSIzMnB4IiBoZWlnaHQ9IjMycHgiPgo8Zz4KCTxnPgoJCTxwYXRoIGQ9Ik03LDlMNS4yNjgsNy40ODRsLTQuOTUyLDQuMjQ1QzAuNDk2LDExLjg5NiwwLjczOSwxMiwxLjAwNywxMmgxMS45ODYgICAgYzAuMjY3LDAsMC41MDktMC4xMDQsMC42ODgtMC4yNzFMOC43MzIsNy40ODRMNyw5eiIgZmlsbD0iI2RkZGVlMCIvPgoJCTxwYXRoIGQ9Ik0xMy42ODQsMi4yNzFDMTMuNTA0LDIuMTAzLDEzLjI2MiwyLDEyLjk5MywySDEuMDA3QzAuNzQsMiwwLjQ5OCwyLjEwNCwwLjMxOCwyLjI3M0w3LDggICAgTDEzLjY4NCwyLjI3MXoiIGZpbGw9IiNkZGRlZTAiLz4KCQk8cG9seWdvbiBwb2ludHM9IjAsMi44NzggMCwxMS4xODYgNC44MzMsNy4wNzkgICAiIGZpbGw9IiNkZGRlZTAiLz4KCQk8cG9seWdvbiBwb2ludHM9IjkuMTY3LDcuMDc5IDE0LDExLjE4NiAxNCwyLjg3NSAgICIgZmlsbD0iI2RkZGVlMCIvPgoJPC9nPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+Cjwvc3ZnPgo=');
+        top: 19px;
+        left: 26px;
+        width: 32px;
+        height: 32px;
+      }
+
+      #reset-password-email-input {
+        width: 100%;
+        background-color: none;
+        border: 1px solid #DDDEE0;
+        padding: 0px 20px 0px 80px;
+        height: 70px;
+        font-size: 18px;
+        font-family: 'Roboto', sans-serif;
+        box-shadow: none;
+        outline: none;
+        border-radius: 0px;
+
+        &:focus {
+          box-shadow: none;
+          outline: none;
+        }
+      }
+    }
+
+    .reset-pass-btn {
+      margin-top: 25px;
+      background-color: #3EC0EE;
+      border: 1px solid #3EC0EE;
+      color: white;
+      padding: 13px 40px;
+      margin-left: 50%;
+      transform: translateX(-50%);
+      font-size: 19px;
+      font-family: Roboto;
+    }
+  }
+}
