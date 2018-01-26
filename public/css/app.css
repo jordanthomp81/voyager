@@ -8916,3 +8916,172 @@ table {
   font-family: Roboto;
 }
 
+.reset-password-email-container {
+  width: 100vw;
+  height: 100vh;
+  background-image: url("http://image.ibb.co/cQJ0jG/mountain_3094974_1920.jpg");
+  background-repeat: no-repeat;
+  background-position: center left;
+  background-size: cover;
+  position: relative;
+}
+
+.reset-password-email-container .reset-password-email-sub-container {
+  overflow: hidden;
+  border-top: 4px solid #38C2F1;
+  position: absolute;
+  width: 30%;
+  height: 100%;
+  background-color: white;
+  top: 0px;
+  right: 0px;
+}
+
+.reset-password-email-container .reset-password-email-sub-container #reset-password-email-main-logo {
+  display: inline-block;
+  margin-top: 100px;
+  margin-left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+.reset-password-email-container .reset-password-email-sub-container h1 {
+  margin-top: 100px;
+  width: 70%;
+  margin-left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  font-size: 23px;
+  margin-bottom: 25px;
+  font-family: 'Roboto', sans-serif;
+}
+
+.reset-password-email-container .reset-password-email-sub-container .reset-password-email-sent-input-container {
+  display: inline-block;
+  margin-left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  width: 70%;
+  position: relative;
+}
+
+.reset-password-email-container .reset-password-email-sub-container .reset-password-email-sent-input-container::after {
+  position: absolute;
+  content: url("data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTguMS4xLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDE0IDE0IiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCAxNCAxNDsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHdpZHRoPSIzMnB4IiBoZWlnaHQ9IjMycHgiPgo8Zz4KCTxnPgoJCTxwYXRoIGQ9Ik03LDlMNS4yNjgsNy40ODRsLTQuOTUyLDQuMjQ1QzAuNDk2LDExLjg5NiwwLjczOSwxMiwxLjAwNywxMmgxMS45ODYgICAgYzAuMjY3LDAsMC41MDktMC4xMDQsMC42ODgtMC4yNzFMOC43MzIsNy40ODRMNyw5eiIgZmlsbD0iI2RkZGVlMCIvPgoJCTxwYXRoIGQ9Ik0xMy42ODQsMi4yNzFDMTMuNTA0LDIuMTAzLDEzLjI2MiwyLDEyLjk5MywySDEuMDA3QzAuNzQsMiwwLjQ5OCwyLjEwNCwwLjMxOCwyLjI3M0w3LDggICAgTDEzLjY4NCwyLjI3MXoiIGZpbGw9IiNkZGRlZTAiLz4KCQk8cG9seWdvbiBwb2ludHM9IjAsMi44NzggMCwxMS4xODYgNC44MzMsNy4wNzkgICAiIGZpbGw9IiNkZGRlZTAiLz4KCQk8cG9seWdvbiBwb2ludHM9IjkuMTY3LDcuMDc5IDE0LDExLjE4NiAxNCwyLjg3NSAgICIgZmlsbD0iI2RkZGVlMCIvPgoJPC9nPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+Cjwvc3ZnPgo=");
+  top: 19px;
+  left: 26px;
+  width: 32px;
+  height: 32px;
+}
+
+.reset-password-email-container .reset-password-email-sub-container .reset-password-email-sent-input-container #reset-password-email-sent-input {
+  width: 100%;
+  background-color: none;
+  border: 1px solid #DDDEE0;
+  padding: 0px 20px 0px 80px;
+  height: 70px;
+  font-size: 18px;
+  font-family: 'Roboto', sans-serif;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  outline: none;
+  border-radius: 0px;
+}
+
+.reset-password-email-container .reset-password-email-sub-container .reset-password-email-sent-input-container #reset-password-email-sent-input:focus {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  outline: none;
+}
+
+.reset-password-email-container .reset-password-email-sub-container .reset-password-email-password-input-container {
+  display: inline-block;
+  margin-left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  margin-top: 20px;
+  width: 70%;
+  position: relative;
+}
+
+.reset-password-email-container .reset-password-email-sub-container .reset-password-email-password-input-container::after {
+  position: absolute;
+  content: url("data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTYuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgd2lkdGg9IjMycHgiIGhlaWdodD0iMzJweCIgdmlld0JveD0iMCAwIDQwMS45OTggNDAxLjk5OCIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNDAxLjk5OCA0MDEuOTk4OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+CjxnPgoJPHBhdGggZD0iTTM1Ny40NSwxOTAuNzIxYy01LjMzMS01LjMzLTExLjgtNy45OTMtMTkuNDE3LTcuOTkzaC05LjEzMXYtNTQuODIxYzAtMzUuMDIyLTEyLjU1OS02NS4wOTMtMzcuNjg1LTkwLjIxOCAgIEMyNjYuMDkzLDEyLjU2MywyMzYuMDI1LDAsMjAwLjk5OCwwYy0zNS4wMjYsMC02NS4xLDEyLjU2My05MC4yMjIsMzcuNjg4Qzg1LjY1LDYyLjgxNCw3My4wOTEsOTIuODg0LDczLjA5MSwxMjcuOTA3djU0LjgyMSAgIGgtOS4xMzVjLTcuNjExLDAtMTQuMDg0LDIuNjYzLTE5LjQxNCw3Ljk5M2MtNS4zMyw1LjMyNi03Ljk5NCwxMS43OTktNy45OTQsMTkuNDE3VjM3NC41OWMwLDcuNjExLDIuNjY1LDE0LjA4Niw3Ljk5NCwxOS40MTcgICBjNS4zMyw1LjMyNSwxMS44MDMsNy45OTEsMTkuNDE0LDcuOTkxSDMzOC4wNGM3LjYxNywwLDE0LjA4NS0yLjY2MywxOS40MTctNy45OTFjNS4zMjUtNS4zMzEsNy45OTQtMTEuODA2LDcuOTk0LTE5LjQxN1YyMTAuMTM1ICAgQzM2NS40NTUsMjAyLjUyMywzNjIuNzgyLDE5Ni4wNTEsMzU3LjQ1LDE5MC43MjF6IE0yNzQuMDg3LDE4Mi43MjhIMTI3LjkwOXYtNTQuODIxYzAtMjAuMTc1LDcuMTM5LTM3LjQwMiwyMS40MTQtNTEuNjc1ICAgYzE0LjI3Ny0xNC4yNzUsMzEuNTAxLTIxLjQxMSw1MS42NzgtMjEuNDExYzIwLjE3OSwwLDM3LjM5OSw3LjEzNSw1MS42NzcsMjEuNDExYzE0LjI3MSwxNC4yNzIsMjEuNDA5LDMxLjUsMjEuNDA5LDUxLjY3NVYxODIuNzI4ICAgeiIgZmlsbD0iI2RkZGVlMCIvPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+Cjwvc3ZnPgo=");
+  top: 19px;
+  left: 26px;
+  width: 32px;
+  height: 32px;
+}
+
+.reset-password-email-container .reset-password-email-sub-container .reset-password-email-password-input-container #reset-password-email-password-input {
+  width: 100%;
+  background-color: none;
+  border: 1px solid #DDDEE0;
+  padding: 0px 20px 0px 80px;
+  height: 70px;
+  font-size: 18px;
+  font-family: 'Roboto', sans-serif;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  outline: none;
+  border-radius: 0px;
+}
+
+.reset-password-email-container .reset-password-email-sub-container .reset-password-email-password-input-container #reset-password-email-password-input:focus {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  outline: none;
+}
+
+.reset-password-email-container .reset-password-email-sub-container .reset-password-confirm-email-password-input-container {
+  display: inline-block;
+  margin-left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  margin-top: 20px;
+  width: 70%;
+  position: relative;
+}
+
+.reset-password-email-container .reset-password-email-sub-container .reset-password-confirm-email-password-input-container::after {
+  position: absolute;
+  content: url("data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTYuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgd2lkdGg9IjMycHgiIGhlaWdodD0iMzJweCIgdmlld0JveD0iMCAwIDQwMS45OTggNDAxLjk5OCIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNDAxLjk5OCA0MDEuOTk4OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+CjxnPgoJPHBhdGggZD0iTTM1Ny40NSwxOTAuNzIxYy01LjMzMS01LjMzLTExLjgtNy45OTMtMTkuNDE3LTcuOTkzaC05LjEzMXYtNTQuODIxYzAtMzUuMDIyLTEyLjU1OS02NS4wOTMtMzcuNjg1LTkwLjIxOCAgIEMyNjYuMDkzLDEyLjU2MywyMzYuMDI1LDAsMjAwLjk5OCwwYy0zNS4wMjYsMC02NS4xLDEyLjU2My05MC4yMjIsMzcuNjg4Qzg1LjY1LDYyLjgxNCw3My4wOTEsOTIuODg0LDczLjA5MSwxMjcuOTA3djU0LjgyMSAgIGgtOS4xMzVjLTcuNjExLDAtMTQuMDg0LDIuNjYzLTE5LjQxNCw3Ljk5M2MtNS4zMyw1LjMyNi03Ljk5NCwxMS43OTktNy45OTQsMTkuNDE3VjM3NC41OWMwLDcuNjExLDIuNjY1LDE0LjA4Niw3Ljk5NCwxOS40MTcgICBjNS4zMyw1LjMyNSwxMS44MDMsNy45OTEsMTkuNDE0LDcuOTkxSDMzOC4wNGM3LjYxNywwLDE0LjA4NS0yLjY2MywxOS40MTctNy45OTFjNS4zMjUtNS4zMzEsNy45OTQtMTEuODA2LDcuOTk0LTE5LjQxN1YyMTAuMTM1ICAgQzM2NS40NTUsMjAyLjUyMywzNjIuNzgyLDE5Ni4wNTEsMzU3LjQ1LDE5MC43MjF6IE0yNzQuMDg3LDE4Mi43MjhIMTI3LjkwOXYtNTQuODIxYzAtMjAuMTc1LDcuMTM5LTM3LjQwMiwyMS40MTQtNTEuNjc1ICAgYzE0LjI3Ny0xNC4yNzUsMzEuNTAxLTIxLjQxMSw1MS42NzgtMjEuNDExYzIwLjE3OSwwLDM3LjM5OSw3LjEzNSw1MS42NzcsMjEuNDExYzE0LjI3MSwxNC4yNzIsMjEuNDA5LDMxLjUsMjEuNDA5LDUxLjY3NVYxODIuNzI4ICAgeiIgZmlsbD0iI2RkZGVlMCIvPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+Cjwvc3ZnPgo=");
+  top: 19px;
+  left: 26px;
+  width: 32px;
+  height: 32px;
+}
+
+.reset-password-email-container .reset-password-email-sub-container .reset-password-confirm-email-password-input-container #reset-password-confirm-email-password-input {
+  width: 100%;
+  background-color: none;
+  border: 1px solid #DDDEE0;
+  padding: 0px 20px 0px 80px;
+  height: 70px;
+  font-size: 18px;
+  font-family: 'Roboto', sans-serif;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  outline: none;
+  border-radius: 0px;
+}
+
+.reset-password-email-container .reset-password-email-sub-container .reset-password-confirm-email-password-input-container #reset-password-confirm-email-password-input:focus {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  outline: none;
+}
+
+.reset-password-email-container .reset-password-email-sub-container .reset-email-btn {
+  margin-top: 25px;
+  background-color: #3EC0EE;
+  border: 1px solid #3EC0EE;
+  color: white;
+  padding: 13px 40px;
+  margin-left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  font-size: 19px;
+  font-family: Roboto;
+}
+
