@@ -2,6 +2,9 @@
 // Fonts
 // @import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
 
+// Animate CSS
+@import "vendor/animate";
+
 // Variables
 // @import "variables";
 
@@ -16,3 +19,6 @@
 @import "reset-pass";
 @import "create-account";
 @import "email-reset-pass";
+
+// Dashboard
+@import "dashboard/header";

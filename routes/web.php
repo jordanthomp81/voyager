@@ -28,15 +28,19 @@ Route::get('/create-user', function () {
 
 Route::get('/dashboard', function () {
     return view('dashboard');
-});
+})->middleware('auth');
+
+Route::get('/dashboard-image', function () {
+    return view('dashboard-image');
+})->middleware('auth');
 
 Route::get('/dashboard-new-user', function () {
     return view('dashboard-new-user');
 });
 
-Route::get('/settings', function () {
+Route::get('/settings', ['as' => 'settings', function () {
     return view('settings');
-});
+}]);
 
 Route::get('/projects', function () {
     return view('projects');
