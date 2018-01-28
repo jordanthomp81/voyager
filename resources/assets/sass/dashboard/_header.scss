@@ -22,13 +22,14 @@ body {
 
     .dashboard-header-split-container {
       float: left;
-      width: 50%;
+      width: calc(50% - 5%);
       height: 100%;
 
       &:nth-of-type(1) {
         padding-left: 5%;
 
         .dashboard-header-main-logo {
+          // padding-left: 5%;
           margin-top: 14px;
         }
       }
@@ -37,6 +38,7 @@ body {
         padding-right: 5%;
 
         .dashboard-header-new-project-icon {
+          // padding-right: 5%;
           float: right;
           margin-top: 26px;
           cursor: pointer;
@@ -65,20 +67,30 @@ body {
           &:hover {
             height: 110px;
 
+            .dashboard-header-profile-arrow-img {
+              transform: rotate(180deg);
+            }
+
             .dashboard-header-profile-sub-menu {
               display: block;
+            }
+
+            .dashboard-header-profile-img {
+              transform: scale(1.1);
             }
           }
 
           .dashboard-header-profile-img {
             float: left;
             border-radius: 20px;
+            transition: all .3s ease;
           }
 
           .dashboard-header-profile-arrow-img {
             margin-top: 11.5px;
             margin-left: 10px;
             float: right;
+            transition: all .3s ease;
             width: 12px;
             height: 12px;
           }
@@ -100,6 +112,11 @@ body {
               font-size: 15px;
               position: relative;
               display: inline-block;
+              text-decoration: none;
+
+              &:hover {
+                text-decoration: underline;
+              }
 
               &:nth-of-type(1) {
 
