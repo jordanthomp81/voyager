@@ -2,17 +2,14 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
 
+// Jeet
+@import "../../../node_modules/jeet/scss/index";
+
 // Animate CSS
 @import "vendor/animate";
-@import "config/reset";
 
 // Config
 @import "config/variables";
-
-// Bootstrap
-// @import "~bootstrap-sass/assets/stylesheets/bootstrap";
-
-// CSS Reset
 @import "config/reset";
 
 // Login
@@ -24,3 +21,4 @@
 // Dashboard
 @import "dashboard/header";
 @import "dashboard/side-nav";
+@import "dashboard/dashboard";
