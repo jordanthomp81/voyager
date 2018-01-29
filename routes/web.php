@@ -26,9 +26,11 @@ Route::get('/settings', ['as' => 'settings', function () {
     return view('settings/settings');
 }])->middleware('auth');
 
-Route::get('/projects', ['as' => 'projects', function () {
-    return view('projects/projects');
-}])->middleware('auth');
+Route::get('/projects', ['as' => 'projects', 'uses' => 'ProjectsController@index'])->middleware('auth');
+
+// Route::get('/projects', ['as' => 'projects', function () {
+//     return view('projects/projects');
+// }])->middleware('auth');
 
 Route::get('/projects/{projectId}', function ($projectId) {
   return view('projects/individual-project');

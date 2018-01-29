@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Projects;
 use Illuminate\Http\Request;
 
-class Projects extends Controller
+class ProjectsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,8 +14,8 @@ class Projects extends Controller
      */
     public function index()
     {
-        //
-  
+        $projects = Projects::all();
+        return view('projects/projects', compact('projects'));
     }
 
     /**

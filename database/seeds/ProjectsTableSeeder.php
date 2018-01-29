@@ -18,5 +18,26 @@ class ProjectsTableSeeder extends Seeder
           'members' => 1,
           'description' => str_random(8)
         ]);
+
+        DB::table('projects')->insert([
+          'name' => 'Website',
+          'deadline' => '2017-04-16',
+          'members' => 1,
+          'description' => str_random(8)
+        ]);
+
+        DB::table('projects')->insert([
+          'name' => 'Web App',
+          'deadline' => '2017-04-16',
+          'members' => 1,
+          'description' => str_random(8)
+        ]);
+
+        DB::table('projects')->insert([
+          'name' => 'Plugin',
+          'deadline' => '2017-04-16',
+          'members' => 1,
+          'description' => str_random(8)
+        ]);
     }
 }
