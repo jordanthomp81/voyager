@@ -4512,6 +4512,7 @@ body {
   -webkit-box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.05);
           box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.05);
   display: inline-block;
+  text-decoration: none;
 }
 
 @media (max-width: 830px) {
@@ -4698,6 +4699,7 @@ body {
 .dashboard-content-project-container .dashboard-content-project .dashboard-content-project-controls-container {
   display: inline-block;
   margin-left: 25px;
+  margin-top: 20px;
   margin-right: 25px;
   margin-bottom: 25px;
   width: calc(100% - 50px);

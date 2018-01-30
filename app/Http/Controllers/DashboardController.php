@@ -24,7 +24,7 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        $projects = Projects::all();
+        $projects = Projects::all()->take(4);
         return view('dashboard/dashboard', compact('projects'));
     }
 }

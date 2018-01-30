@@ -19,6 +19,17 @@ class ProjectsController extends Controller
     }
 
     /**
+     * Display a listing of individual project
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function single($projectId)
+    {
+        $projects = Projects::all()->where('id', $projectId);
+        return view('projects/individual-project', compact('projects'));
+    }
+
+    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response

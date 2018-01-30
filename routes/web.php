@@ -28,13 +28,15 @@ Route::get('/settings', ['as' => 'settings', function () {
 
 Route::get('/projects', ['as' => 'projects', 'uses' => 'ProjectsController@index'])->middleware('auth');
 
+Route::get('/project/{projectId}', ['as' => 'project', 'uses' => 'ProjectsController@single'])->middleware('auth');
+
 // Route::get('/projects', ['as' => 'projects', function () {
 //     return view('projects/projects');
 // }])->middleware('auth');
 
-Route::get('/projects/{projectId}', function ($projectId) {
-  return view('projects/individual-project');
-})->middleware('auth');
+// Route::get('/projects/{projectId}', function ($projectId) {
+//   return view('projects/individual-project');
+// })->middleware('auth');
 
 Route::get('/tasks', ['as' => 'tasks', function () {
     return view('tasks/tasks');
