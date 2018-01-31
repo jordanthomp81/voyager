@@ -3,6 +3,7 @@
   <?php
     $project->deadline = explode('-', $project->deadline)[1] . '/' . explode('-', $project->deadline)[2] . '/' . explode('-', $project->deadline)[0];
     $tempProjectId = 'projects/' . $project->id;
+    $project->description = substr($project->description, 0, 80) . '...';
   ?>
 
   <a href="{{ route('project', ['projectId' => $project->id]) }}" class="dashboard-content-project">

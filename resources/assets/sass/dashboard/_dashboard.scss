@@ -8,8 +8,6 @@
    font-family: 'Open Sans', sans-serif;
    font-size: 30px;
    color: #4d4c4d;
-  //  margin-top: calc(100vh * .045);
-  //  margin-left: 50px;
    float: left;
   }
 
@@ -35,11 +33,18 @@
     // width: auto;
     height: auto;
     background-color: white;
-    // border: 1px solid #E7EAEE;
+    border: 1px solid #E7EAEE;
     box-shadow: 5px 5px 10px rgba(0,0,0,.05);
     display: inline-block;
+    box-sizing: border-box;
     text-decoration: none;
     // padding: 25px;
+
+    transition: all .3s ease;
+
+    &:hover {
+      border: 1px solid #39C1F0;
+    }
 
     @media(max-width: 830px) {
       @include column(1/1, $cycle: 1);
