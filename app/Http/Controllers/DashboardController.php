@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Projects;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class DashboardController extends Controller
 {
@@ -24,7 +25,9 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        $projects = Projects::all()->take(4);
+        $user = Auth::user();
+        $id = 1;
+        $projects = Projects::all()->where('createdById', '==', $id)->take(4);
         return view('dashboard/dashboard', compact('projects'));
     }
 }
