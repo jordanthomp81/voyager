@@ -58,7 +58,8 @@ class ProjectsController extends Controller
      */
     public function show($id)
     {
-        //
+      $projects = Projects::all()->where('id', $id);
+      return view('projects/individual-project', compact('projects'));
     }
 
     /**
@@ -69,7 +70,8 @@ class ProjectsController extends Controller
      */
     public function edit($id)
     {
-        //
+      $projects = Projects::all()->where('id', $id);
+      return view('projects/crud/edit-project', compact('projects'));
     }
 
     /**
@@ -81,7 +83,15 @@ class ProjectsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+      $newDate = date('Y-m-d', strtotime($request->deadline));
+      $project = Projects::all()->where('id', $id)->first()->update([
+        'name' => $request->name,
+        'description' => $request->description,
+        'deadline' => $newDate
+      ]);
+
+      $projects = Projects::all()->where('id', $id);
+      return view('projects/individual-project', compact('projects'));
     }
 
     /**

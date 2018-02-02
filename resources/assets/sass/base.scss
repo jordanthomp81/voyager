@@ -8,6 +8,9 @@
 // Animate CSS
 @import "vendor/animate";
 
+// jQuery UI
+@import '~jquery-ui/themes/base/all.css';
+
 // Config
 @import "config/variables";
 @import "config/reset";
@@ -25,3 +28,4 @@
 
 // Projects
 @import "dashboard/projects/individual-project";
+@import "dashboard/projects/edit-project";

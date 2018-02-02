@@ -6,7 +6,7 @@
     $project->description = substr($project->description, 0, 80) . '...';
   ?>
 
-  <a href="{{ route('project', ['projectId' => $project->id]) }}" class="dashboard-content-project">
+  <a href="{{ route('projects.show', ['id' => $project->id]) }}" class="dashboard-content-project">
 
     <p class="dashboard-content-project-deadline">Deadline: {{ $project->deadline }}</p>
 
