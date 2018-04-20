@@ -11,7 +11,19 @@
       </div>
 
       <div class="dashboard-content-inner-split-container">
-        <h1>Tasks</h1>
+
+        <div class="task-content-inner-split-container">
+
+          <h1 class="task-main-title">Tasks</h1>
+
+          <div class="clear"></div>
+
+          <div class="task-content-container">
+
+          </div>
+
+        </div>
+
       </div>
 
     </div>

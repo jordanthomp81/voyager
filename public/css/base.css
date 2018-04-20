@@ -6829,3 +6829,30 @@ body {
   color: white;
 }
 
+.task-content-inner-split-container {
+  height: auto;
+  margin-top: calc(100vh * .045);
+}
+
+.task-content-inner-split-container .task-main-title {
+  margin-left: 50px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 30px;
+  color: #4d4c4d;
+  float: left;
+}
+
+.task-content-inner-split-container .task-content-container {
+  width: 100%;
+  height: 75vh;
+  background-color: white;
+  border: 1px solid #E7EAEE;
+  -webkit-box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.05);
+          box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.05);
+  display: inline-block;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin-left: 50px;
+  margin-top: 25px;
+}
+
