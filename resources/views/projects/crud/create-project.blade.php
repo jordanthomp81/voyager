@@ -10,13 +10,12 @@
         @include('dashboard/dash-side-nav')
       </div>
 
-      @foreach ($requests as $request)
       <div class="dashboard-content-inner-split-container">
-        {{ $request->name }}
+        
       </div>
-      @endforeach
 
     </div>
 
   </div>
+
 @endsection

@@ -27,9 +27,17 @@
 
               <div class="individual-project-more-options-sub-menu">
 
-                <a class="individual-project-more-options-sub-menu-title" href="{{ route('projects.edit', ['id' => $project->id]) }}">Edit</a>
+                <form class="" action="{{ route('projects.destroy', ['id' => $project->id]) }}" method="POST">
 
-                <a class="individual-project-more-options-sub-menu-title" href="#!">Delete</a>
+                  {{ method_field('DELETE') }}
+
+                  {{ csrf_field() }}
+
+                  <input type="submit" value="Delete" class="individual-project-more-options-sub-menu-title">
+
+                </form>
+
+                <a class="individual-project-more-options-sub-menu-title" href="{{ route('projects.edit', ['id' => $project->id]) }}">Edit</a>
 
               </div>
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Projects;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProjectsController extends Controller
 {
@@ -36,7 +37,7 @@ class ProjectsController extends Controller
      */
     public function create()
     {
-        //
+      return view('projects/crud/create-project');
     }
 
     /**
@@ -102,6 +103,10 @@ class ProjectsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $project = Projects::all()->where('id', $id)->first();
+        $project->delete();
+        $id = Auth::id();
+        $projects = Projects::all()->where('createdById', '==', $id)->take(4);
+        return view('dashboard/dashboard', compact('projects'));
     }
 }

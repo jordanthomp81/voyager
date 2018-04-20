@@ -143,7 +143,7 @@
 
     <p class="individual-project-edit-modal-link"><a href="{{ route('projects.index') }}">Projects</a> >> <a href="{{ route('projects.show', ['id' => $project->id]) }}">{{ $project->name }}</a></p>
 
-    <form class="" action="{{ route('projects.update', ['projectId' => $project->id]) }}" method="POST">
+    <form class="" action="{{ route('projects.update', ['id' => $project->id]) }}" method="POST">
 
       {{ method_field('PUT') }}
 
