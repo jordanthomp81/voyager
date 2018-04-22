@@ -18,6 +18,7 @@
         "jquery-ui": "^1.12.1",
         "laravel-mix": "^1.0",
         "lodash": "^4.17.4",
+        "pretty-checkbox": "^3.0.3",
         "vue": "^2.5.7"
     }
 }

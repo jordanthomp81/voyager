@@ -20,6 +20,12 @@
 
           <div class="task-content-container">
 
+            <h2 class="task-sub-title">Today</h2>
+
+            <h2 class="task-sub-title">Due Soon</h2>
+
+            <h2 class="task-sub-title">All Tasks(0)</h2>
+
           </div>
 
         </div>
