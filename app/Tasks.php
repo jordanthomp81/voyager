@@ -4,10 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Task extends Model
+class Tasks extends Model
 {
     /**
-     * The table associated with the Projects model.
+     * The table associated with the Tasks model.
      *
      * @var string
      */
