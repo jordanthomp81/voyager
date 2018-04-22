@@ -14,9 +14,10 @@ class TasksTableSeeder extends Seeder
         //
         DB::table('tasks')->insert([
           'title' => 'Update Client Spreadsheet',
-          'createdById' => '1',
+          'createdById' => 1,
+          'projectId' => 1,
           'deadline' => '2018-08-16',
-          'assignee' => '1',
+          'assignee' => 1,
           'description' => 'Narwhal flexitarian synth pop-up affogato church-key roof party man bun slow-carb selvage. Try-hard small batch put a bird on it hexagon. Art party man bun mixtape twee tofu bicycle rights artisan chambray pug.'
         ]);
     }
