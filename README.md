@@ -15,9 +15,9 @@ If you want to make code commits then download the dev branch.
 
 ```git checkout development```
 
-Rename the `.env-example` file to `.env` along with you db info
+Google a copy of the latest laraval `.env-example` file, and rename it to `.env`. After that simply update it with your db info
 
-```mv "old location" "new location"```
+```mv ".env-example" ".env"```
 
 Lastly go ahead and install the required packages
 
