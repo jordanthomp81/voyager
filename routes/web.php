@@ -23,7 +23,7 @@ Route::get('/dashboard-image', ['as' => 'dashboard-image', function () {
     return view('dashboard/dashboard-image');
 }])->middleware('auth');
 
-// Settings
+// Settingsode does the error occur on? What is on that line o
 Route::get('/settings', ['as' => 'settings', function () {
     return view('settings/settings');
 }])->middleware('auth');
@@ -36,13 +36,14 @@ Route::resource('/projects', 'ProjectsController');
 // Route::get('/project/update/{projectId}', ['as' => 'project.update', 'uses' => 'ProjectsController@update'])->middleware('auth');
 
 // Tasks
-Route::get('/tasks', ['as' => 'tasks', function () {
-    return view('tasks/tasks');
-}])->middleware('auth');
-
-Route::get('/tasks/{taskId}', function ($taskId) {
-    return view('tasks/individual-task');
-})->middleware('auth');
+Route::resource('/tasks', 'TasksController');
+// Route::get('/tasks', ['as' => 'tasks', function () {
+//     return view('tasks/tasks');
+// }])->middleware('auth');
+//
+// Route::get('/tasks/{taskId}', function ($taskId) {
+//     return view('tasks/individual-task');
+// })->middleware('auth');
 
 // Messages
 Route::get('/messages', ['as' => 'messages', function () {
