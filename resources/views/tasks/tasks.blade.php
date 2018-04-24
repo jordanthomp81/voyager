@@ -26,6 +26,26 @@
 
             <h2 class="task-sub-title">Today</h2>
 
+              @foreach ($tasks as $task)
+
+                <?php
+                  $task->deadline = explode('-', $task->deadline)[1] . '/' . explode('-', $task->deadline)[2] . '/' . explode('-', $task->deadline)[0];
+                  $temptaskId = 'tasks/' . $task->id;
+                  $task->description = substr($task->description, 0, 80) . '...';
+                ?>
+
+                <a href="#" class="dashboard-content-task">
+
+                  <p class="dashboard-content-task-deadline">Deadline: {{ $task->deadline }}</p>
+
+                  <h2>{{ $task->title }}</h2>
+
+                  <p class="dashboard-content-task-description">{{ $task->description }}</p>
+
+                </a>
+
+              @endforeach
+
             <h2 class="task-sub-title">Due Soon</h2>
 
             <h2 class="task-sub-title">All Tasks(0)</h2>
