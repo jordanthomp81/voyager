@@ -34,7 +34,7 @@
                   $task->description = substr($task->description, 0, 80) . '...';
                 ?>
 
-                <a href="#" class="content-task">
+                <a href="tasks/{{ $task->id }}" class="content-task">
 
                   <p class="content-task-deadline">Deadline: {{ $task->deadline }}</p>
 

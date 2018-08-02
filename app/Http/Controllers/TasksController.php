@@ -49,6 +49,8 @@ class TasksController extends Controller
     public function show($id)
     {
         //
+        $tasks = Tasks::all()->where('id', $id);
+        return view('tasks/individual-task', compact('tasks'));
     }
 
     /**

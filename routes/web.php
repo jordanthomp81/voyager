@@ -14,15 +14,6 @@ Route::get('/', function () {
   return view('auth/login');
 });
 
-// Dashboard
-Route::get('/dashboard', ['as' => 'dashboard', function () {
-    return view('dashboard/');
-}])->middleware('auth');
-
-Route::get('/dashboard-image', ['as' => 'dashboard-image', function () {
-    return view('dashboard/dashboard-image');
-}])->middleware('auth');
-
 // Settingsode does the error occur on? What is on that line o
 Route::get('/settings', ['as' => 'settings', function () {
     return view('settings/settings');
@@ -30,20 +21,9 @@ Route::get('/settings', ['as' => 'settings', function () {
 
 // Projects
 Route::resource('/projects', 'ProjectsController');
-// Route::get('/projects', ['as' => 'projects', 'uses' => 'ProjectsController@index'])->middleware('auth');
-// Route::get('/project/{projectId}', ['as' => 'project', 'uses' => 'ProjectsController@single'])->middleware('auth');
-// Route::get('/project/edit/{projectId}', ['as' => 'project.edit', 'uses' => 'ProjectsController@edit'])->middleware('auth');
-// Route::get('/project/update/{projectId}', ['as' => 'project.update', 'uses' => 'ProjectsController@update'])->middleware('auth');
 
 // Tasks
 Route::resource('/tasks', 'TasksController');
-// Route::get('/tasks', ['as' => 'tasks', function () {
-//     return view('tasks/tasks');
-// }])->middleware('auth');
-//
-// Route::get('/tasks/{taskId}', function ($taskId) {
-//     return view('tasks/individual-task');
-// })->middleware('auth');
 
 // Messages
 Route::get('/messages', ['as' => 'messages', function () {

@@ -1,25 +1,46 @@
-<!doctype html>
-<html lang="{{ app()->getLocale() }}">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Dashboard</title>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-                        <a href="{{ route('register') }}">Register</a>
-                    @endauth
-                </div>
-            @endif
+@extends('layouts.app')
 
-            <!-- <img style="position: absolute; top: 0px; left: 50%; transform: translateX(-50%);" src="http://image.ibb.co/bSiOYb/dash_navigation_user_screen.png" width="1366px" height="auto" alt=""> -->
+@section('content')
+
+  @include('dashboard/dash-header')
+
+  <div class="content-container">
+
+    <div class="content-inner-container">
+
+      <div class="content-inner-split-container">
+
+        @include('dashboard/dash-side-nav')
+
+      </div>
+
+      <div class="content-inner-split-container">
+
+        <div class="task-content-inner-split-container">
+
+          <h1 class="task-main-title">Tasks</h1>
+
+          <div class="clear"></div>
+
+          <div class="task-content-container">
+
+              @foreach ($tasks as $task)
+
+                {{ $task->title }}
+                {{ $task->description }}
+                {{ $task->assignee }}
+                {{ $task->deadline }}
+
+              @endforeach
+
+          </div>
+
         </div>
-    </body>
-</html>
+
+      </div>
+
+    </div>
+
+  </div>
+
+@endsection

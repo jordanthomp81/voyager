@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Projects;
+use App\Tasks;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -59,8 +60,10 @@ class ProjectsController extends Controller
      */
     public function show($id)
     {
+      $userId = Auth::id();
       $projects = Projects::all()->where('id', $id);
-      return view('projects/individual-project', compact('projects'));
+      $tasks = Tasks::all()->where('projectId', $id)->where('createdById', $userId);
+      return view('projects/individual-project', compact('projects', 'tasks'));
     }
 
     /**

@@ -11,7 +11,6 @@ class TasksTableSeeder extends Seeder
      */
     public function run()
     {
-        //
         DB::table('tasks')->insert([
           'title' => 'Update Client Spreadsheet',
           'createdById' => 1,
