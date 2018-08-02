@@ -4,17 +4,17 @@
 
   @include('dashboard/dash-header')
 
-  <div class="dashboard-content-container">
+  <div class="content-container">
 
-    <div class="dashboard-content-inner-container">
+    <div class="content-inner-container">
 
-      <div class="dashboard-content-inner-split-container">
+      <div class="content-inner-split-container">
 
         @include('dashboard/dash-side-nav')
 
       </div>
 
-      <div class="dashboard-content-inner-split-container">
+      <div class="content-inner-split-container">
 
         <div class="task-content-inner-split-container">
 
@@ -34,13 +34,13 @@
                   $task->description = substr($task->description, 0, 80) . '...';
                 ?>
 
-                <a href="#" class="dashboard-content-task">
+                <a href="#" class="content-task">
 
-                  <p class="dashboard-content-task-deadline">Deadline: {{ $task->deadline }}</p>
+                  <p class="content-task-deadline">Deadline: {{ $task->deadline }}</p>
 
                   <h2>{{ $task->title }}</h2>
 
-                  <p class="dashboard-content-task-description">{{ $task->description }}</p>
+                  <p class="content-task-description">{{ $task->description }}</p>
 
                 </a>
 
