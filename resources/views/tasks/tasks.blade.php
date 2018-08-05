@@ -60,4 +60,6 @@
 
   </div>
 
+  @include('modals/modals')
+
 @endsection

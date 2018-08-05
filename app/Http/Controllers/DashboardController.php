@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Projects;
+use App\Tasks;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -28,6 +29,15 @@ class DashboardController extends Controller
         $user = Auth::user();
         $id = 1;
         $projects = Projects::all()->where('createdById', '==', $id)->take(4);
-        return view('dashboard/dashboard', compact('projects'));
+        $projectIdArr = Projects::all()->where('createdById', '==', $id)->take(4)->pluck('id')->toArray();
+        $tasktIdArr = Tasks::where('id' ,'>' ,0)->pluck('projectId')->toArray();
+        $compareArr = array_intersect($projectIdArr, $tasktIdArr);
+
+        for ($i = 0; $i < sizeof($compareArr); $i++) {
+          $taskByIdArr = Tasks::where('projectId' ,'==' , $compareArr[$i]);
+          $taskCounts[$compareArr[$i]] = sizeof($taskByIdArr);
+        }
+
+        return view('dashboard/dashboard', compact('projects', 'taskCounts'));
     }
 }

@@ -31,4 +31,7 @@
     </div>
 
   </div>
+  
+  @include('modals/modals')
+
 @endsection

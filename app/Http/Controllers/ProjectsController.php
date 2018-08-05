@@ -17,7 +17,19 @@ class ProjectsController extends Controller
     public function index()
     {
         $projects = Projects::all();
-        return view('projects/projects', compact('projects'));
+        // $userId = Auth::id();
+        $projectIdArr = Projects::where('id' ,'>' ,0)->pluck('id')->toArray();
+        $tasktIdArr = Tasks::where('id' ,'>' ,0)->pluck('projectId')->toArray();
+        $compareArr = array_intersect($projectIdArr, $tasktIdArr);
+        // we know that id 2 has tasks
+        for ($i = 0; $i < sizeof($compareArr); $i++) {
+          $taskByIdArr = Tasks::where('projectId' ,'==' , $compareArr[$i]);
+          $taskCounts[$compareArr[$i]] = sizeof($taskByIdArr);
+        }
+        // $tempTaskCountArr[]
+        // $tasks = Tasks::all()->where('projectId', $id);
+        // array_intersect
+        return view('projects/projects', compact('projects', 'taskCounts'));
     }
 
     /**
@@ -38,7 +50,7 @@ class ProjectsController extends Controller
      */
     public function create()
     {
-      return view('projects/crud/create-project');
+
     }
 
     /**
@@ -49,7 +61,15 @@ class ProjectsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $project = new Projects;
+      $project->name = $request->name;
+      $project->description = $request->description;
+      $project->deadline = date('Y-m-d', strtotime($request->deadline));
+      $project->createdById = Auth::id();
+      $project->members = 1;
+      $project->save();
+      $projects = Projects::all();
+      return view('projects/projects', compact('projects'));
     }
 
     /**
@@ -63,7 +83,15 @@ class ProjectsController extends Controller
       $userId = Auth::id();
       $projects = Projects::all()->where('id', $id);
       $tasks = Tasks::all()->where('projectId', $id)->where('createdById', $userId);
-      return view('projects/individual-project', compact('projects', 'tasks'));
+      $projectIdArr = Projects::where('id' ,'>' ,0)->pluck('id')->toArray();
+      $tasktIdArr = Tasks::where('id' ,'>' ,0)->pluck('projectId')->toArray();
+      $compareArr = array_intersect($projectIdArr, $tasktIdArr);
+      // we know that id 2 has tasks
+      for ($i = 0; $i < sizeof($compareArr); $i++) {
+        $taskByIdArr = Tasks::where('projectId' ,'==' , $compareArr[$i]);
+        $taskCounts[$compareArr[$i]] = sizeof($taskByIdArr);
+      }
+      return view('projects/individual-project', compact('projects', 'tasks', 'taskCounts'));
     }
 
     /**
@@ -74,8 +102,7 @@ class ProjectsController extends Controller
      */
     public function edit($id)
     {
-      $projects = Projects::all()->where('id', $id);
-      return view('projects/crud/edit-project', compact('projects'));
+
     }
 
     /**
@@ -87,6 +114,7 @@ class ProjectsController extends Controller
      */
     public function update(Request $request, $id)
     {
+      $userId = Auth::id();
       $newDate = date('Y-m-d', strtotime($request->deadline));
       $project = Projects::all()->where('id', $id)->first()->update([
         'name' => $request->name,
@@ -95,7 +123,8 @@ class ProjectsController extends Controller
       ]);
 
       $projects = Projects::all()->where('id', $id);
-      return view('projects/individual-project', compact('projects'));
+      $tasks = Tasks::all()->where('projectId', $id)->where('createdById', $userId);
+      return view('projects/individual-project', compact('projects', 'tasks'));
     }
 
     /**
