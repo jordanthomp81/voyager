@@ -1,14 +1,27 @@
+
 @foreach ($projects as $project)
 
   <?php
-    $project->deadline = explode('-', $project->deadline)[1] . '/' . explode('-', $project->deadline)[2] . '/' . explode('-', $project->deadline)[0];
+    if($project->deadline == null) {
+      $project->deadline == null;
+    }else {
+      $project->deadline = explode('-', $project->deadline)[1] . '/' . explode('-', $project->deadline)[2] . '/' . explode('-', $project->deadline)[0];
+    }
     $tempProjectId = 'projects/' . $project->id;
     $project->description = substr($project->description, 0, 80) . '...';
   ?>
 
   <a href="{{ route('projects.show', ['id' => $project->id]) }}" class="content-project">
 
-    <p class="content-project-deadline">Deadline: {{ $project->deadline }}</p>
+    <p class="content-project-deadline">Deadline:
+
+      @if($project->deadline == null)
+        No Deadline
+      @else
+        {{ $project->deadline }}
+      @endif
+
+    </p>
 
     @if(isset($taskCounts[$project->id]))
       @if($taskCounts[$project->id] == 1)
@@ -30,7 +43,7 @@
 
       <p class="content-project-controls-members">
 
-        @if(count($project->members) == 1)
+        @if($project->members <= 1)
           {{ $project->members }} Member
         @else
           {{ $project->members }} Members

@@ -27,13 +27,15 @@
 
 // Dashboard
 @import "dashboard/header";
-@import "dashboard/side-nav";
-@import "dashboard/dashboard";
 
 // Projects
-@import "dashboard/projects/individual-project";
-@import "dashboard/projects/edit-project";
+@import "projects/individual-project";
 
 // Tasks
-@import "dashboard/tasks/tasks";
-@import "dashboard/tasks/individual-task";
+@import "tasks/tasks";
+@import "tasks/individual-task";
+
+// Modals
+@import "modals/edit-modal";
+@import "modals/create-modal";
+@import "modals/delete-modal";

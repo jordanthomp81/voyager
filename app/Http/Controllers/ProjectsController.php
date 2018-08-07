@@ -21,6 +21,7 @@ class ProjectsController extends Controller
         $projectIdArr = Projects::where('id' ,'>' ,0)->pluck('id')->toArray();
         $tasktIdArr = Tasks::where('id' ,'>' ,0)->pluck('projectId')->toArray();
         $compareArr = array_intersect($projectIdArr, $tasktIdArr);
+        $compareArr = array_values($compareArr);
         // we know that id 2 has tasks
         for ($i = 0; $i < sizeof($compareArr); $i++) {
           $taskByIdArr = Tasks::where('projectId' ,'==' , $compareArr[$i]);
@@ -64,7 +65,11 @@ class ProjectsController extends Controller
       $project = new Projects;
       $project->name = $request->name;
       $project->description = $request->description;
-      $project->deadline = date('Y-m-d', strtotime($request->deadline));
+      if($request->deadline != null) {
+        $project->deadline = date('Y-m-d', strtotime($request->deadline));
+      }else {
+        $project->deadline = null;
+      }
       $project->createdById = Auth::id();
       $project->members = 1;
       $project->save();
@@ -86,6 +91,7 @@ class ProjectsController extends Controller
       $projectIdArr = Projects::where('id' ,'>' ,0)->pluck('id')->toArray();
       $tasktIdArr = Tasks::where('id' ,'>' ,0)->pluck('projectId')->toArray();
       $compareArr = array_intersect($projectIdArr, $tasktIdArr);
+      $compareArr = array_values($compareArr);
       // we know that id 2 has tasks
       for ($i = 0; $i < sizeof($compareArr); $i++) {
         $taskByIdArr = Tasks::where('projectId' ,'==' , $compareArr[$i]);
@@ -115,7 +121,13 @@ class ProjectsController extends Controller
     public function update(Request $request, $id)
     {
       $userId = Auth::id();
-      $newDate = date('Y-m-d', strtotime($request->deadline));
+
+      if($request->deadline != null) {
+        $newDate = date('Y-m-d', strtotime($request->deadline));
+      }else {
+        $newDate = null;
+      }
+
       $project = Projects::all()->where('id', $id)->first()->update([
         'name' => $request->name,
         'description' => $request->description,

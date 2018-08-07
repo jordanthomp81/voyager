@@ -19,7 +19,11 @@
         <div class="individual-split-container">
 
             <?php
+            if($project->deadline == null) {
+              $project->deadline = null;
+            }else {
               $project->deadline = explode('-', $project->deadline)[1] . '/' . explode('-', $project->deadline)[2] . '/' . explode('-', $project->deadline)[0];
+            }
             ?>
 
             <h1 class="individual-title">{{ $project->name }}</h1>
@@ -30,7 +34,7 @@
 
               <div class="individual-more-options-sub-menu">
 
-                <form class="delete-container" action="{{ route('projects.destroy', ['id' => $project->id]) }}" method="POST">
+                <!-- <form class="delete-container" action="{{ route('projects.destroy', ['id' => $project->id]) }}" method="POST">
 
                   {{ method_field('DELETE') }}
 
@@ -38,9 +42,11 @@
 
                   <input type="submit" value="Delete" class="individual-more-options-sub-menu-title">
 
-                </form>
+                </form> -->
 
-                <a class="individual-more-options-sub-menu-title" data-edit-type="project" href="#!">Edit</a>
+                <a class="individual-more-options-sub-menu-title edit-btn" data-edit-type="project" href="#!">Edit</a>
+
+                <a class="individual-more-options-sub-menu-title delete-btn" data-delete-type="project" href="#!">Delete</a>
 
               </div>
 
@@ -54,7 +60,15 @@
 
               <div class="individual-content-copy-container">
 
-                <h6 class="individual-content-copy-deadline">Deadline: {{ $project->deadline }}</h6>
+                <h6 class="individual-content-copy-deadline">Deadline:
+
+                  @if($project->deadline == null)
+                    No Deadline
+                  @else
+                    {{ $project->deadline }}
+                  @endif
+
+                </h6>
 
                 <div class="clear"></div>
 

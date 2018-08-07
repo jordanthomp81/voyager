@@ -29,14 +29,28 @@
               @foreach ($tasks as $task)
 
                 <?php
-                  $task->deadline = explode('-', $task->deadline)[1] . '/' . explode('-', $task->deadline)[2] . '/' . explode('-', $task->deadline)[0];
+                  // dd($task->deadline);
+                  if($task->deadline == null) {
+                    $task->deadline == null;
+                  }else {
+                    $task->deadline = explode('-', $task->deadline)[1] . '/' . explode('-', $task->deadline)[2] . '/' . explode('-', $task->deadline)[0];
+                  }
+                  // dd($task->deadline);
                   $temptaskId = 'tasks/' . $task->id;
                   $task->description = substr($task->description, 0, 80) . '...';
                 ?>
 
                 <a href="tasks/{{ $task->id }}" class="content-task">
 
-                  <p class="content-task-deadline">Deadline: {{ $task->deadline }}</p>
+                  <p class="content-task-deadline">Deadline:
+
+                    @if($task->deadline == null)
+                      No Deadline
+                    @else
+                      {{ $task->deadline }}
+                    @endif
+
+                  </p>
 
                   <h2>{{ $task->title }}</h2>
 

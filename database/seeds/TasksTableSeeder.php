@@ -19,5 +19,14 @@ class TasksTableSeeder extends Seeder
           'assignee' => 1,
           'description' => 'Narwhal flexitarian synth pop-up affogato church-key roof party man bun slow-carb selvage. Try-hard small batch put a bird on it hexagon. Art party man bun mixtape twee tofu bicycle rights artisan chambray pug.'
         ]);
+
+        DB::table('tasks')->insert([
+          'title' => 'Tasks Again',
+          'createdById' => 1,
+          'projectId' => 2,
+          'deadline' => null,
+          'assignee' => 1,
+          'description' => 'Narwhal flexitarian synth pop-up affogato church-key roof party man bun slow-carb selvage. Try-hard small batch put a bird on it hexagon. Art party man bun mixtape twee tofu bicycle rights artisan chambray pug.'
+        ]);
     }
 }

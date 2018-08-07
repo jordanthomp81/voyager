@@ -17,9 +17,9 @@ class CreateProjectsTable extends Migration
             $table->increments('id');
             $table->integer('createdById');
             $table->string('name');
-            $table->date('deadline');
+            $table->date('deadline')->nullable();
             $table->integer('members');
-            $table->char('description');
+            $table->char('description')->nullable();
             $table->timestamps();
         });
     }

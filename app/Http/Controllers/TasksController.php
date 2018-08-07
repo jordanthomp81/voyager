@@ -41,7 +41,11 @@ class TasksController extends Controller
       $task = new Tasks;
       $task->title = $request->name;
       $task->description = $request->description;
-      $task->deadline = date('Y-m-d', strtotime($request->deadline));
+      if($request->deadline != null) {
+        $task->deadline = date('Y-m-d', strtotime($request->deadline));
+      }else {
+        $task->deadline = null;
+      }
       $task->createdById = Auth::id();
       $task->projectId = 2;
       $task->assignee = 1;
@@ -84,7 +88,12 @@ class TasksController extends Controller
     public function update(Request $request, $id)
     {
       $userId = Auth::id();
-      $newDate = date('Y-m-d', strtotime($request->deadline));
+      if($request->deadline == null) {
+        $newDate = null;
+      }else {
+        $newDate = date('Y-m-d', strtotime($request->deadline));
+      }
+
       $project = Tasks::all()->where('id', $id)->first()->update([
         'title' => $request->name,
         'description' => $request->description,

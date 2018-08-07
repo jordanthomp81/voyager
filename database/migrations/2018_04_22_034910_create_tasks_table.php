@@ -18,8 +18,8 @@ class CreateTasksTable extends Migration
             $table->integer('createdById');
             $table->integer('projectId');
             $table->string('title');
-            $table->date('deadline');
-            $table->char('description');
+            $table->date('deadline')->nullable();
+            $table->char('description')->nullable();
             $table->integer('assignee');
             $table->timestamps();
         });

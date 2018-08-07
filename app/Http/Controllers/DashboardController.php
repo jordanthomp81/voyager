@@ -32,7 +32,7 @@ class DashboardController extends Controller
         $projectIdArr = Projects::all()->where('createdById', '==', $id)->take(4)->pluck('id')->toArray();
         $tasktIdArr = Tasks::where('id' ,'>' ,0)->pluck('projectId')->toArray();
         $compareArr = array_intersect($projectIdArr, $tasktIdArr);
-
+        $compareArr = array_values($compareArr);
         for ($i = 0; $i < sizeof($compareArr); $i++) {
           $taskByIdArr = Tasks::where('projectId' ,'==' , $compareArr[$i]);
           $taskCounts[$compareArr[$i]] = sizeof($taskByIdArr);

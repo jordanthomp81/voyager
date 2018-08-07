@@ -1,7 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
+
   @include('dashboard/dash-header')
+
   <div class="content-container">
 
     <div class="content-inner-container">
@@ -26,7 +28,7 @@
 
               <div class="individual-more-options-sub-menu">
 
-                <form class="delete-container" action="{{ route('tasks.destroy', ['id' => $task->id]) }}" method="POST">
+                <!-- <form class="delete-container" action="{{ route('tasks.destroy', ['id' => $task->id]) }}" method="POST">
 
                   {{ method_field('DELETE') }}
 
@@ -34,9 +36,11 @@
 
                   <input type="submit" value="Delete" class="individual-more-options-sub-menu-title">
 
-                </form>
+                </form> -->
 
-                <a class="individual-more-options-sub-menu-title" data-edit-type="task" href="#!">Edit</a>
+                <a class="individual-more-options-sub-menu-title edit-btn" data-edit-type="task" href="#!">Edit</a>
+
+                <a class="individual-more-options-sub-menu-title delete-btn" data-delete-type="task" href="#!">Delete</a>
 
               </div>
 
@@ -50,7 +54,15 @@
 
               <div class="individual-content-copy-container">
 
-                <h6 class="individual-content-copy-deadline">Deadline: {{ $task->deadline }}</h6>
+                <h6 class="individual-content-copy-deadline">Deadline:
+
+                  @if($task->deadline == null)
+                    No Deadline
+                  @else
+                    {{ $task->deadline }}
+                  @endif
+
+                </h6>
 
                 <div class="clear"></div>
 
