@@ -26,6 +26,22 @@
 
           </div>
 
+          <h6 class="content-filter-container">Filter
+
+            <span class="animated fadeIn sub-menu">
+
+              <a href="#" class="sub-menu-title filter-deadline">Deadline</a><br />
+
+              <a href="#" class="sub-menu-title filter-tasks">Num of Tasks</a><br />
+
+              <a href="#" class="sub-menu-title filter-members">Team Members</a>
+
+              <a href="#" class="sub-menu-title filter-title">Title</a>
+
+            </span>
+
+          </h6>
+
         </div><br />
 
         <div class="clear"></div>
