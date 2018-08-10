@@ -31884,9 +31884,18 @@ function produceItem(tempObj) {
 // date sort params
 function compareDate(a, b) {
   var amyDate = a.date.split("/");
-  var aNewDate = new Date(amyDate[0][1] + "," + amyDate[1] + "," + amyDate[2]).getTime();
+  // debugger;
+  if (amyDate[0][0] == '0') {
+    var aNewDate = new Date(amyDate[0][1] + "," + amyDate[1] + "," + amyDate[2]).getTime();
+  } else {
+    var aNewDate = new Date(amyDate[0] + "," + amyDate[1] + "," + amyDate[2]).getTime();
+  }
   var bmyDate = b.date.split("/");
-  var bNewDate = new Date(bmyDate[0][1] + "," + bmyDate[1] + "," + bmyDate[2]).getTime();
+  if (bmyDate[0][0] == '0') {
+    var bNewDate = new Date(bmyDate[0][1] + "," + bmyDate[1] + "," + bmyDate[2]).getTime();
+  } else {
+    var bNewDate = new Date(bmyDate[0] + "," + bmyDate[1] + "," + bmyDate[2]).getTime();
+  }
   return aNewDate < bNewDate ? -1 : aNewDate > bNewDate ? 1 : 0;
 }
 
@@ -32095,9 +32104,10 @@ $(document).ready(function () {
           if (tempDeadline || tempTitle || tempDescription) {
             // do nothing
           } else {
-            // remove
-            $(this).remove();
-          }
+              debugger;
+              // remove
+              $(this).remove();
+            }
         });
       }
     } else {
