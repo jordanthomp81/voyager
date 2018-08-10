@@ -23,7 +23,6 @@ function produceItem(tempObj) {
 // date sort params
 function compareDate(a, b) {
   var amyDate = a.date.split("/");
-  // debugger;
   if(amyDate[0][0] == '0') {
     var aNewDate = new Date(amyDate[0][1]+","+amyDate[1]+","+amyDate[2]).getTime();
   }else {

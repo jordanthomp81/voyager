@@ -30,6 +30,31 @@
 
     <input class="create-modal-deadline" placeholder="Deadline" type="text" id="datepicker" name="deadline">
 
+    <div class="clear"></div>
+
+    <h2 class="create-modal-sub-title">Assign to Project</h2>
+
+    @if(isset($modalProjects))
+
+      <div class="create-modal-project-container">
+
+        <select class="create-modal-project" name="project">
+
+          @foreach ($modalProjects as $modalProject)
+
+            <option>{{ $modalProject->name }}</option>
+
+          @endforeach
+
+        </select>
+
+        <div class="select_arrow">
+        </div>
+
+      </div>
+
+    @endif
+
     <div class="clear"></div><br>
 
     <input class="create-modal-submit" type="submit" name="submit" value="Create">

@@ -8299,6 +8299,74 @@ body {
   margin-top: 50px;
 }
 
+.edit-modal-container form .edit-modal-project-container {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 15px;
+  width: auto;
+  -webkit-transition: all .3s ease;
+  transition: all .3s ease;
+}
+
+.edit-modal-container form .edit-modal-project-container:hover {
+  -webkit-box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.05);
+          box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.05);
+}
+
+.edit-modal-container form .edit-modal-project-container .edit-modal-project {
+  font-family: 'Arial';
+  display: inline-block;
+  width: 100%;
+  cursor: pointer;
+  padding: 10px 40px 10px 10px;
+  outline: 0;
+  border: 1px solid #E7EAEE;
+  border-radius: 0px;
+  background: #ffffff;
+  color: #676567;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+.edit-modal-container form .edit-modal-project-container .edit-modal-project::-ms-expand {
+  display: none;
+}
+
+.edit-modal-container form .edit-modal-project-container .edit-modal-project:hover,
+.edit-modal-container form .edit-modal-project-container .edit-modal-project:focus {
+  color: #676567;
+  background: #ffffff;
+}
+
+.edit-modal-container form .edit-modal-project-container .edit-modal-project:disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.edit-modal-container form .select_arrow {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 0px;
+  height: 0px;
+  border: solid #7b7b7b;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+
+.edit-modal-container form .select select:hover ~ .select_arrow,
+.edit-modal-container form .select select:focus ~ .select_arrow {
+  border-color: #7b7b7b;
+}
+
+.edit-modal-container form .select select:disabled ~ .select_arrow {
+  border-top-color: #CCCCCC;
+}
+
 .edit-modal-container form .edit-modal-input {
   background-color: transparent;
   border: 1px solid #E7EAEE;
@@ -8431,6 +8499,74 @@ body {
 
 .create-modal-container form .create-modal-sub-title:first-of-type {
   margin-top: 50px;
+}
+
+.create-modal-container form .create-modal-project-container {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 15px;
+  width: auto;
+  -webkit-transition: all .3s ease;
+  transition: all .3s ease;
+}
+
+.create-modal-container form .create-modal-project-container:hover {
+  -webkit-box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.05);
+          box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.05);
+}
+
+.create-modal-container form .create-modal-project-container .create-modal-project {
+  font-family: 'Arial';
+  display: inline-block;
+  width: 100%;
+  cursor: pointer;
+  padding: 10px 40px 10px 10px;
+  outline: 0;
+  border: 1px solid #E7EAEE;
+  border-radius: 0px;
+  background: #ffffff;
+  color: #676567;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+.create-modal-container form .create-modal-project-container .create-modal-project::-ms-expand {
+  display: none;
+}
+
+.create-modal-container form .create-modal-project-container .create-modal-project:hover,
+.create-modal-container form .create-modal-project-container .create-modal-project:focus {
+  color: #676567;
+  background: #ffffff;
+}
+
+.create-modal-container form .create-modal-project-container .create-modal-project:disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.create-modal-container form .select_arrow {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 0px;
+  height: 0px;
+  border: solid #7b7b7b;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+
+.create-modal-container form .select select:hover ~ .select_arrow,
+.create-modal-container form .select select:focus ~ .select_arrow {
+  border-color: #7b7b7b;
+}
+
+.create-modal-container form .select select:disabled ~ .select_arrow {
+  border-top-color: #CCCCCC;
 }
 
 .create-modal-container form .create-modal-input {

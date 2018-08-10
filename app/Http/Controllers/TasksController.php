@@ -6,6 +6,7 @@ use App\Tasks;
 use App\Projects;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use DB;
 
 class TasksController extends Controller
 {
@@ -41,13 +42,15 @@ class TasksController extends Controller
       $task = new Tasks;
       $task->title = $request->name;
       $task->description = $request->description;
+      $project = $request->project;
+      $project = Projects::all()->where('name', $project)->pluck('id')->toArray()[0];
+      $task->projectId = $project;
       if($request->deadline != null) {
         $task->deadline = date('Y-m-d', strtotime($request->deadline));
       }else {
         $task->deadline = null;
       }
       $task->createdById = Auth::id();
-      $task->projectId = 2;
       $task->assignee = 1;
       $task->save();
       $tasks = Tasks::all();
@@ -64,8 +67,10 @@ class TasksController extends Controller
     {
         //
         $tasks = Tasks::all()->where('id', $id);
-        $projects = Projects::all();
-        return view('tasks/individual-task', compact('tasks', 'projects'));
+        $modalProjects = Projects::all();
+        $projectId = $tasks->pluck('projectId')->toArray()[0];
+        $projects = Projects::all()->where('id', $projectId)->pluck('name')->toArray()[0];
+        return view('tasks/individual-task', compact('tasks', 'modalProjects', 'projects'));
     }
 
     /**
@@ -89,18 +94,22 @@ class TasksController extends Controller
     public function update(Request $request, $id)
     {
       $userId = Auth::id();
+      $project = $request->project;
+      $projectId = Projects::all()->where('name', $project)->pluck('id')->toArray()[0];
+
       if($request->deadline == null) {
         $newDate = null;
       }else {
         $newDate = date('Y-m-d', strtotime($request->deadline));
       }
-
-      $project = Tasks::all()->where('id', $id)->first()->update([
+      // dd(Tasks::all()->where('id', $id)->first());
+      $project = DB::table('tasks')->where(['id' => $id])->update([
+        'projectId' => $projectId,
         'title' => $request->name,
         'description' => $request->description,
         'deadline' => $newDate
       ]);
-
+      // dd(Tasks::all()->where('id', $id)->first());
       $projects = Projects::all()->where('id', $id);
       $tasks = Tasks::all()->where('id', $id);
       return view('tasks/individual-task', compact('projects', 'tasks'));

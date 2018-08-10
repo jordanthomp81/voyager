@@ -87,6 +87,7 @@ class ProjectsController extends Controller
     {
       $userId = Auth::id();
       $projects = Projects::all()->where('id', $id);
+      $modalProjects = Projects::all();
       $tasks = Tasks::all()->where('projectId', $id)->where('createdById', $userId);
       $projectIdArr = Projects::where('id' ,'>' ,0)->pluck('id')->toArray();
       $tasktIdArr = Tasks::where('id' ,'>' ,0)->pluck('projectId')->toArray();
@@ -97,7 +98,7 @@ class ProjectsController extends Controller
         $taskByIdArr = Tasks::where('projectId' ,'==' , $compareArr[$i]);
         $taskCounts[$compareArr[$i]] = sizeof($taskByIdArr);
       }
-      return view('projects/individual-project', compact('projects', 'tasks', 'taskCounts'));
+      return view('projects/individual-project', compact('projects', 'tasks', 'taskCounts', 'modalProjects'));
     }
 
     /**

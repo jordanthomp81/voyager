@@ -72,6 +72,35 @@
       @endforeach
     @endif
 
+    <div class="clear"></div>
+
+    <h2 class="edit-modal-sub-title">Assign to Project</h2>
+
+    @if(isset($modalProjects))
+
+      <div class="edit-modal-project-container">
+
+        <select class="edit-modal-project" name="project">
+
+          @foreach ($modalProjects as $modalProject)
+
+            @if($projects != $modalProject->name)
+              <option value="{{ $modalProject->name }}">{{ $modalProject->name }}</option>
+            @else
+              <option selected value="{{ $modalProject->name }}">{{ $modalProject->name }}</option>
+            @endif
+
+          @endforeach
+
+        </select>
+
+        <div class="select_arrow">
+        </div>
+
+      </div>
+
+    @endif
+
     <div class="clear"></div><br>
 
     <input class="edit-modal-submit" type="submit" name="submit" value="Update">
