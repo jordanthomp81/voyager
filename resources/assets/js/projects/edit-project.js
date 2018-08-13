@@ -149,6 +149,22 @@ $(document).ready(function() {
   tempProjects = $('.content-project');
 
   var tempItemStorage = $('.content-project');
+  var tempCurrTask = '';
+  $('.content-task .pretty').click(function() {
+    tempCurrTask = $(this).parent();
+    tempCurrTask.addClass('animated fadeOutRight');
+    setTimeout(function(){
+      tempCurrTask.addClass('de-active');
+    }, 700);
+  });
+
+  $('.individual-task-item-container .pretty').click(function() {
+    tempCurrTask = $(this).parent();
+    tempCurrTask.addClass('animated fadeOutRight');
+    setTimeout(function(){
+      tempCurrTask.addClass('de-active');
+    }, 700);
+  });
 
   $('.filter-deadline').click(function() {
     if($(this).hasClass('active')) {
