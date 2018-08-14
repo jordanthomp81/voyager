@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Response;
 use App\Tasks;
 use App\Projects;
 use Illuminate\Http\Request;
@@ -38,6 +39,40 @@ class TasksController extends Controller
         }
         $projectNames = $projectNameArr;
         return view('tasks/tasks', compact('tasks', 'projectNames'));
+    }
+
+    /**
+     * Set the given task id {taskId} to be completed in the db
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function finish($id)
+    {
+      $tasks = Tasks::all();
+      $currTaskItem = DB::table('tasks')->where(['id' => $id])->update([
+        'completed' => 1
+      ]);
+      $projects = Projects::all();
+      $projectIdArr = [];
+      $projectNameArr = [];
+      // $tasks = Tasks::all()->where('projectId', $id)->where('createdById', $userId);
+      // $projectIdArr = Projects::where('id' ,'>' ,0)->pluck('id')->toArray();
+      for ($n=0; $n < count($tasks); $n++) {
+        if(isset($tasks[$n]->projectId)) {
+          array_push($projectIdArr, $tasks[$n]->projectId);
+        }
+      }
+      for ($m = 0; $m < count($projectIdArr); $m++) {
+        $tempCurrItems = $projects->where('id', $projectIdArr[$m]);
+        for ($h = 0; $h < count($tempCurrItems); $h++) {
+          foreach ($tempCurrItems as $tempCurrItem) {
+            array_push($projectNameArr, $tempCurrItem->name);
+          }
+        }
+      }
+      $projectNames = $projectNameArr;
+      return view('tasks/tasks', compact('tasks', 'projectNames'));
     }
 
     /**

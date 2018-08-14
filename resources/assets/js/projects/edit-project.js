@@ -155,6 +155,22 @@ $(document).ready(function() {
     tempCurrTask.addClass('animated fadeOutRight');
     setTimeout(function(){
       tempCurrTask.addClass('de-active');
+      var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+      var tempCurrId = parseInt(tempCurrTask.find('.content-task-project-container').attr('href').split('/')[1]);
+      var tempUrl = 'http://127.0.0.1:8000/tasks/complete/' + tempCurrId;
+      axios.get(tempUrl, {
+        headers: {
+          _token: CSRF_TOKEN,
+          'Content-Type': 'application/json'
+        }
+      })
+      .then(function(response) {
+        // debugger;
+      })
+      .catch(function(error) {
+        // debugger;
+        console.log(error);
+      });
     }, 700);
   });
 
@@ -162,7 +178,24 @@ $(document).ready(function() {
     tempCurrTask = $(this).parent();
     tempCurrTask.addClass('animated fadeOutRight');
     setTimeout(function(){
+      debugger;
       tempCurrTask.addClass('de-active');
+      var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+      var tempCurrId = parseInt(tempCurrTask.find('.individual-task-item-title').attr('href').split('/')[1]);
+      var tempUrl = 'http://127.0.0.1:8000/tasks/complete/' + tempCurrId;
+      axios.get(tempUrl, {
+        headers: {
+          _token: CSRF_TOKEN,
+          'Content-Type': 'application/json'
+        }
+      })
+      .then(function(response) {
+        // debugger;
+      })
+      .catch(function(error) {
+        // debugger;
+        console.log(error);
+      });
     }, 700);
   });
 

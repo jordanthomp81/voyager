@@ -23,6 +23,7 @@ Route::get('/settings', ['as' => 'settings', function () {
 Route::resource('/projects', 'ProjectsController');
 
 // Tasks
+Route::get('/tasks/complete/{taskId}', 'TasksController@finish');
 Route::resource('/tasks', 'TasksController');
 
 // Messages
