@@ -4592,7 +4592,8 @@ body {
     box-sizing: border-box;
     margin-left: 50px;
     margin-top: 25px;
-    margin-bottom: 25px; }
+    margin-bottom: 25px;
+    padding-bottom: 15px; }
     .task-content-inner-split-container .task-content-container .task-sub-title {
       margin-left: 25px;
       margin-top: 25px;
@@ -4613,7 +4614,7 @@ body {
     margin: 0px;
     margin-right: 5px;
     margin-top: 10px; }
-  .content-task::after {
+  .content-task:not(:last-of-type)::after {
     content: '';
     position: absolute;
     bottom: 0px;

@@ -7,6 +7,7 @@ use App\Tasks;
 use App\Projects;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
 use DB;
 
 class TasksController extends Controller
@@ -18,7 +19,10 @@ class TasksController extends Controller
      */
     public function index()
     {
-        $tasks = Tasks::all();
+        $today = Carbon::today()->toDateTimeString();
+        $nextWeek = Carbon::today()->addWeeks(1)->toDateTimeString();
+        $taskWeeks = Tasks::where('deadline', '<=', $nextWeek)->where('deadline', '>=', $today)->get();
+        $tasks = Tasks::all()->sortByDesc('deadline');
         $projects = Projects::all();
         $projectIdArr = [];
         $projectNameArr = [];
@@ -38,7 +42,7 @@ class TasksController extends Controller
           }
         }
         $projectNames = $projectNameArr;
-        return view('tasks/tasks', compact('tasks', 'projectNames'));
+        return view('tasks/tasks', compact('tasks', 'taskWeeks', 'projectNames', 'today', 'nextWeek'));
     }
 
     /**

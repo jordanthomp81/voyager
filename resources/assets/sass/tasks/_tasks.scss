@@ -22,6 +22,7 @@
     margin-left: 50px;
     margin-top: 25px;
     margin-bottom: 25px;
+    padding-bottom: 15px;
 
     .task-sub-title {
       margin-left: 25px;
@@ -51,14 +52,16 @@
     margin-top: 10px;
   }
 
-  &::after {
-    content: '';
-    position: absolute;
-    bottom: 0px;
-    left: 25px;
-    width: calc(100% - 50px);
-    height: 1px;
-    border-bottom: 1px solid #e8ecf1;
+  &:not(:last-of-type) {
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0px;
+      left: 25px;
+      width: calc(100% - 50px);
+      height: 1px;
+      border-bottom: 1px solid #e8ecf1;
+    }
   }
 
   .content-task-project-container {
