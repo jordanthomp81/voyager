@@ -93,6 +93,7 @@ class TasksController extends Controller
      */
     public function store(Request $request)
     {
+      // dd($projectNames);
       $task = new Tasks;
       $task->title = $request->name;
       $task->description = $request->description;
@@ -106,9 +107,32 @@ class TasksController extends Controller
       }
       $task->createdById = Auth::id();
       $task->assignee = 1;
+      $task->completed = '0';
       $task->save();
       $tasks = Tasks::all();
-      return view('tasks/tasks', compact('tasks'));
+
+      // $tasks = Tasks::all();
+      $projects = Projects::all();
+      $projectIdArr = [];
+      $projectNameArr = [];
+      // $tasks = Tasks::all()->where('projectId', $id)->where('createdById', $userId);
+      // $projectIdArr = Projects::where('id' ,'>' ,0)->pluck('id')->toArray();
+      for ($n=0; $n < count($tasks); $n++) {
+        if(isset($tasks[$n]->projectId)) {
+          array_push($projectIdArr, $tasks[$n]->projectId);
+        }
+      }
+      for ($m = 0; $m < count($projectIdArr); $m++) {
+        $tempCurrItems = $projects->where('id', $projectIdArr[$m]);
+        for ($h = 0; $h < count($tempCurrItems); $h++) {
+          foreach ($tempCurrItems as $tempCurrItem) {
+            array_push($projectNameArr, $tempCurrItem->name);
+          }
+        }
+      }
+      $projectNames = $projectNameArr;
+
+      return view('tasks/tasks', compact('tasks', 'projectNames'));
     }
 
     /**
