@@ -29,12 +29,12 @@ class DashboardController extends Controller
         $user = Auth::user();
         $id = 1;
         $projects = Projects::all()->where('createdById', '==', $id)->take(4);
-        $projectIdArr = Projects::all()->where('createdById', '==', $id)->take(4)->pluck('id')->toArray();
+        $projectIdArr = $projects->pluck('id')->toArray();
         $tasktIdArr = Tasks::where('id' ,'>' ,0)->pluck('projectId')->toArray();
         $compareArr = array_intersect($projectIdArr, $tasktIdArr);
         $compareArr = array_values($compareArr);
         for ($i = 0; $i < sizeof($compareArr); $i++) {
-          $taskByIdArr = Tasks::where('projectId' ,'==' , $compareArr[$i]);
+          $taskByIdArr = Tasks::all()->where('projectId' ,'==' , $compareArr[$i]);
           $taskCounts[$compareArr[$i]] = sizeof($taskByIdArr);
         }
 
