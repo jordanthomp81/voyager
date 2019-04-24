@@ -24,6 +24,8 @@
 
           <a class="login-forgot-password" href="{{ route('password.request') }}">Forgot Your Password?</a>
 
+          <div class="clear"></div>
+
           <a class="login-register" href="{{ route('register') }}">Create Account</a>
 
         </div>

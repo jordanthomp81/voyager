@@ -11,22 +11,90 @@
   }
 
   .task-content-container {
-    width: 100%;
-    height: 75vh;
+    width: calc(95% - 68px);
+    // height: calc(100% - 25px);
+    // height: 75vh;
     background-color: white;
-    border: 1px solid #E7EAEE;
+    // border: 1px solid #E7EAEE;
     box-shadow: 5px 5px 10px rgba(0,0,0,.05);
     display: inline-block;
     box-sizing: border-box;
     margin-left: 50px;
     margin-top: 25px;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
 
     .task-sub-title {
       margin-left: 25px;
       margin-top: 25px;
+      margin-bottom: 10px;
       font-family: 'Open Sans', sans-serif;
       font-size: 20px;
       color: #4d4c4d;
+    }
+  }
+}
+
+.content-task {
+  width: calc(100% - 50px);
+  padding: 10px 25px;
+  display: inline-block;
+  position: relative;
+
+  &.de-active {
+    display: none;
+  }
+
+  .pretty {
+    float: left;
+    margin: 0px;
+    margin-right: 5px;
+    margin-top: 10px;
+  }
+
+  &:not(:last-of-type) {
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0px;
+      left: 25px;
+      width: calc(100% - 50px);
+      height: 1px;
+      border-bottom: 1px solid #e8ecf1;
+    }
+  }
+
+  .content-task-project-container {
+    display: inline-block;
+    text-decoration: none;
+    float: left;
+
+    h2 {
+      font-family: 'Open Sans', sans-serif;
+      font-size: 17px;
+      color: #4d4c4d;
+      margin-bottom: 5px;
+    }
+
+    .content-task-project {
+      font-family: 'Open Sans', sans-serif;
+      font-size: 15px;
+      color: #39C1F0;
+    }
+  }
+
+  .content-deadline-container {
+    display: inline-block;
+    float: right;
+
+    .content-task-deadline {
+      padding-top: 14px;
+      // margin-left: 25px;
+      // margin-top: 25px;
+      font-family: 'Open Sans', sans-serif;
+      font-size: 13px;
+      color: #ee3c46;
+      // float: left;
     }
   }
 }

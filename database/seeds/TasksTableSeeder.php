@@ -17,6 +17,7 @@ class TasksTableSeeder extends Seeder
           'projectId' => 2,
           'deadline' => '2018-08-16',
           'assignee' => 1,
+          'completed' => 0,
           'description' => 'Narwhal flexitarian synth pop-up affogato church-key roof party man bun slow-carb selvage. Try-hard small batch put a bird on it hexagon. Art party man bun mixtape twee tofu bicycle rights artisan chambray pug.'
         ]);
 
@@ -26,6 +27,7 @@ class TasksTableSeeder extends Seeder
           'projectId' => 2,
           'deadline' => null,
           'assignee' => 1,
+          'completed' => 0,
           'description' => 'Narwhal flexitarian synth pop-up affogato church-key roof party man bun slow-carb selvage. Try-hard small batch put a bird on it hexagon. Art party man bun mixtape twee tofu bicycle rights artisan chambray pug.'
         ]);
     }

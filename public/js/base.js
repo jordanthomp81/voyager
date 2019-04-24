@@ -11373,6 +11373,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_jquery___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_jquery__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_jquery_ui_ui_widgets_datepicker_js__ = __webpack_require__(37);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_jquery_ui_ui_widgets_datepicker_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_jquery_ui_ui_widgets_datepicker_js__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_axios_index_js__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_axios_index_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_axios_index_js__);
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -11387,6 +11389,7 @@ __webpack_require__(36);
 
 
 window.$ = window.jQuery = __WEBPACK_IMPORTED_MODULE_0_jquery___default.a;
+
 
 
 
@@ -31884,9 +31887,17 @@ function produceItem(tempObj) {
 // date sort params
 function compareDate(a, b) {
   var amyDate = a.date.split("/");
-  var aNewDate = new Date(amyDate[0][1] + "," + amyDate[1] + "," + amyDate[2]).getTime();
+  if (amyDate[0][0] == '0') {
+    var aNewDate = new Date(amyDate[0][1] + "," + amyDate[1] + "," + amyDate[2]).getTime();
+  } else {
+    var aNewDate = new Date(amyDate[0] + "," + amyDate[1] + "," + amyDate[2]).getTime();
+  }
   var bmyDate = b.date.split("/");
-  var bNewDate = new Date(bmyDate[0][1] + "," + bmyDate[1] + "," + bmyDate[2]).getTime();
+  if (bmyDate[0][0] == '0') {
+    var bNewDate = new Date(bmyDate[0][1] + "," + bmyDate[1] + "," + bmyDate[2]).getTime();
+  } else {
+    var bNewDate = new Date(bmyDate[0] + "," + bmyDate[1] + "," + bmyDate[2]).getTime();
+  }
   return aNewDate < bNewDate ? -1 : aNewDate > bNewDate ? 1 : 0;
 }
 
@@ -32003,6 +32014,51 @@ $(document).ready(function () {
   tempProjects = $('.content-project');
 
   var tempItemStorage = $('.content-project');
+  var tempCurrTask = '';
+  $('.content-task .pretty').click(function () {
+    tempCurrTask = $(this).parent();
+    tempCurrTask.addClass('animated fadeOutRight');
+    setTimeout(function () {
+      tempCurrTask.addClass('de-active');
+      var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+      var tempCurrId = parseInt(tempCurrTask.find('.content-task-project-container').attr('href').split('/')[1]);
+      var tempUrl = 'http://127.0.0.1:8000/tasks/complete/' + tempCurrId;
+      axios.get(tempUrl, {
+        headers: {
+          _token: CSRF_TOKEN,
+          'Content-Type': 'application/json'
+        }
+      }).then(function (response) {
+        // debugger;
+      }).catch(function (error) {
+        // debugger;
+        console.log(error);
+      });
+    }, 700);
+  });
+
+  $('.individual-task-item-container .pretty').click(function () {
+    tempCurrTask = $(this).parent();
+    tempCurrTask.addClass('animated fadeOutRight');
+    setTimeout(function () {
+      debugger;
+      tempCurrTask.addClass('de-active');
+      var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+      var tempCurrId = parseInt(tempCurrTask.find('.individual-task-item-title').attr('href').split('/')[1]);
+      var tempUrl = 'http://127.0.0.1:8000/tasks/complete/' + tempCurrId;
+      axios.get(tempUrl, {
+        headers: {
+          _token: CSRF_TOKEN,
+          'Content-Type': 'application/json'
+        }
+      }).then(function (response) {
+        // debugger;
+      }).catch(function (error) {
+        // debugger;
+        console.log(error);
+      });
+    }, 700);
+  });
 
   $('.filter-deadline').click(function () {
     if ($(this).hasClass('active')) {
@@ -32095,9 +32151,10 @@ $(document).ready(function () {
           if (tempDeadline || tempTitle || tempDescription) {
             // do nothing
           } else {
-            // remove
-            $(this).remove();
-          }
+              debugger;
+              // remove
+              $(this).remove();
+            }
         });
       }
     } else {

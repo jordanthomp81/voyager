@@ -24,7 +24,7 @@ class ProjectsController extends Controller
         $compareArr = array_values($compareArr);
         // we know that id 2 has tasks
         for ($i = 0; $i < sizeof($compareArr); $i++) {
-          $taskByIdArr = Tasks::where('projectId' ,'==' , $compareArr[$i]);
+          $taskByIdArr = Tasks::all()->where('projectId' ,'==' , $compareArr[$i]);
           $taskCounts[$compareArr[$i]] = sizeof($taskByIdArr);
         }
         // $tempTaskCountArr[]
@@ -87,17 +87,19 @@ class ProjectsController extends Controller
     {
       $userId = Auth::id();
       $projects = Projects::all()->where('id', $id);
-      $tasks = Tasks::all()->where('projectId', $id)->where('createdById', $userId);
+      $modalProjects = Projects::all();
+      $tasks = Tasks::all()->where('projectId', $id)->where('createdById', $userId)->take(5);
       $projectIdArr = Projects::where('id' ,'>' ,0)->pluck('id')->toArray();
       $tasktIdArr = Tasks::where('id' ,'>' ,0)->pluck('projectId')->toArray();
       $compareArr = array_intersect($projectIdArr, $tasktIdArr);
       $compareArr = array_values($compareArr);
       // we know that id 2 has tasks
       for ($i = 0; $i < sizeof($compareArr); $i++) {
-        $taskByIdArr = Tasks::where('projectId' ,'==' , $compareArr[$i]);
+        $taskByIdArr = Tasks::all()->where('projectId' ,'==' , $compareArr[$i]);
         $taskCounts[$compareArr[$i]] = sizeof($taskByIdArr);
       }
-      return view('projects/individual-project', compact('projects', 'tasks', 'taskCounts'));
+      $currProjectName = $projects->pluck('name')->toArray()[0];
+      return view('projects/individual-project', compact('projects', 'tasks', 'taskCounts', 'modalProjects', 'currProjectName'));
     }
 
     /**

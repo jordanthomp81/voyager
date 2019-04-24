@@ -2,7 +2,13 @@
 
 <div class="animated fadeIn create-modal-container">
 
-  @if(Request::is('projects/*'))
+  @if(Request::is('projects'))
+    <h1 class="create-modal-title">Create New Project</h1>
+  @elseif(Request::is('tasks'))
+    <h1 class="create-modal-title">Create New Task</h1>
+  @elseif(Request::is('dashboard'))
+    <h1 class="create-modal-title">Create New Project</h1>
+  @elseif(Request::is('projects/*'))
     <h1 class="create-modal-title">Create New Project</h1>
   @elseif(Request::is('tasks/*'))
     <h1 class="create-modal-title">Create New Task</h1>
@@ -29,6 +35,43 @@
     <h2 class="create-modal-sub-title">Deadline</h2>
 
     <input class="create-modal-deadline" placeholder="Deadline" type="text" id="datepicker" name="deadline">
+
+    <div class="clear"></div>
+
+    @if(isset($modalProjects))
+
+      <h2 class="create-modal-sub-title">Assign to Project</h2>
+
+      <div class="create-modal-project-container">
+
+        <select class="create-modal-project" name="project">
+
+          @foreach ($modalProjects as $modalProject)
+
+            @if(isset($currProjectName))
+
+              @if($modalProject->name == $currProjectName)
+
+                <option selected>{{ $modalProject->name }}</option>
+
+              @else
+
+                <option>{{ $modalProject->name }}</option>
+
+              @endif
+
+            @endif
+
+          @endforeach
+
+        </select>
+
+        <div class="select_arrow">
+        </div>
+
+      </div>
+
+    @endif
 
     <div class="clear"></div><br>
 

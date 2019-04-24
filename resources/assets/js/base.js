@@ -14,6 +14,7 @@ import $ from 'jquery';
 window.$ = window.jQuery = $;
 
 import 'jquery-ui/ui/widgets/datepicker.js';
+import 'axios/index.js';
 
 window.Vue = require('vue');
 
