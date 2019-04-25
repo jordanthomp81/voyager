@@ -169,12 +169,14 @@
 
                         <a href="tasks/{{ $task->id }}" class="individual-task-item-title">{{ $task->title }}</a>
 
+                        <div class="clear"></div>
+
                       </div>
 
                       <!-- <a href="{{ route('tasks.show', ['id' => $task->id]) }}">{{ $task->title }}</a> -->
 
                     @endif
-                    
+
                   @endforeach
 
                 @else

@@ -12,6 +12,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/base.css') }}" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/datepicker/0.6.5/datepicker.min.css" rel="stylesheet">
 </head>
 <body>
     <div id="app">

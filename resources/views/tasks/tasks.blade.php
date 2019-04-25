@@ -64,7 +64,7 @@
 
                         <div class="content-deadline-container">
 
-                          <p class="content-task-deadline">Deadline:
+                          <p class="content-task-deadline">
 
                             {{ $task->deadline }}
 
@@ -118,7 +118,7 @@
 
                     <div class="content-deadline-container">
 
-                      <p class="content-task-deadline">Deadline:
+                      <p class="content-task-deadline">
 
                         {{ $taskWeek->deadline }}
 
@@ -174,7 +174,7 @@
 
                   <div class="content-deadline-container">
 
-                    <p class="content-task-deadline">Deadline:
+                    <p class="content-task-deadline">
 
                       @if($task->deadline == null)
                         No Deadline

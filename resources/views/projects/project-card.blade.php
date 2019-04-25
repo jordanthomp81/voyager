@@ -13,7 +13,7 @@
 
   <a href="{{ route('projects.show', ['id' => $project->id]) }}" class="content-project">
 
-    <p class="content-project-deadline">Deadline:
+    <p class="content-project-deadline">
 
       @if($project->deadline == null)
         No Deadline

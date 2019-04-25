@@ -26,15 +26,6 @@ Route::resource('/projects', 'ProjectsController');
 Route::get('/tasks/complete/{taskId}', 'TasksController@finish');
 Route::resource('/tasks', 'TasksController');
 
-// Messages
-Route::get('/messages', ['as' => 'messages', function () {
-    return view('messages/messages');
-}])->middleware('auth');
-
-Route::get('/messages/{messageId}', function ($messageId) {
-    return view('messages/messages');
-})->middleware('auth');
-
 // Media
 Route::get('/media', ['as' => 'media', function () {
     return view('media/media');

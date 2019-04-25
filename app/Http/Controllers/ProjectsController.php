@@ -16,7 +16,7 @@ class ProjectsController extends Controller
      */
     public function index()
     {
-        $projects = Projects::all();
+        $projects = Projects::all()->sortByDesc('deadline');
         // $userId = Auth::id();
         $projectIdArr = Projects::where('id' ,'>' ,0)->pluck('id')->toArray();
         $tasktIdArr = Tasks::where('id' ,'>' ,0)->pluck('projectId')->toArray();

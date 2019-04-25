@@ -28,7 +28,8 @@ class DashboardController extends Controller
     {
         $user = Auth::user();
         $id = 1;
-        $projects = Projects::all()->where('createdById', '==', $id)->take(4);
+        $tasks = Tasks::all()->sortByDesc('deadline')->take(3);
+        $projects = Projects::all()->where('createdById', '==', $id)->take(4)->sortByDesc('deadline');
         $projectIdArr = $projects->pluck('id')->toArray();
         $tasktIdArr = Tasks::where('id' ,'>' ,0)->pluck('projectId')->toArray();
         $compareArr = array_intersect($projectIdArr, $tasktIdArr);
@@ -37,7 +38,23 @@ class DashboardController extends Controller
           $taskByIdArr = Tasks::all()->where('projectId' ,'==' , $compareArr[$i]);
           $taskCounts[$compareArr[$i]] = sizeof($taskByIdArr);
         }
+        $projects = Projects::all();
+        $projectIdArr = [];
+        $projectNameArr = [];
+        foreach ($tasks as $task => $value) {
+          array_push($projectIdArr, $value->projectId);
+        }
 
-        return view('dashboard/dashboard', compact('projects', 'taskCounts'));
+        for ($m = 0; $m < count($projectIdArr); $m++) {
+          $tempCurrItems = $projects->where('id', $projectIdArr[$m]);
+          for ($h = 0; $h < count($tempCurrItems); $h++) {
+            foreach ($tempCurrItems as $tempCurrItem) {
+              array_push($projectNameArr, $tempCurrItem->name);
+            }
+          }
+        }
+        $projectNames = $projectNameArr;
+        $projects = Projects::all()->where('createdById', '==', $id)->take(4)->sortByDesc('deadline');
+        return view('dashboard/dashboard', compact('projects', 'tasks', 'taskCounts', 'projectNames'));
     }
 }

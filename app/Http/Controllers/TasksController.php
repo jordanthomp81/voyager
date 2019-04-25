@@ -22,7 +22,7 @@ class TasksController extends Controller
         $today = Carbon::today()->toDateTimeString();
         $nextWeek = Carbon::today()->addWeeks(1)->toDateTimeString();
         $taskWeeks = Tasks::where('deadline', '<=', $nextWeek)->where('deadline', '>=', $today)->get();
-        $tasks = Tasks::all()->sortByDesc('deadline');
+        $tasks = Tasks::all()->sortBy('deadline');
         $projects = Projects::all();
         $projectIdArr = [];
         $projectNameArr = [];
@@ -97,7 +97,9 @@ class TasksController extends Controller
      */
     public function store(Request $request)
     {
-      // dd($projectNames);
+      $projectName = $request->input('project');
+      $currProjectID = Projects::all()->where('name', $projectName)->pluck('id')->toArray()[0];
+      // dd($projectName);
       $task = new Tasks;
       $task->title = $request->name;
       $task->description = $request->description;
@@ -135,8 +137,13 @@ class TasksController extends Controller
         }
       }
       $projectNames = $projectNameArr;
-
-      return view('tasks/tasks', compact('tasks', 'projectNames'));
+      $projects = Projects::all()->where('id', $currProjectID);
+      $userId = Auth::id();
+      $tasks = Tasks::all()->where('projectId', $currProjectID)->where('createdById', $userId)->take(5);
+      // $projects = $currProjectID;
+      // dd($currProjectID);
+      // return view('tasks/tasks', compact('tasks', 'projectNames'));
+      return view('projects/individual-project', compact('projects', 'tasks'));
     }
 
     /**

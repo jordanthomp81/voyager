@@ -2,7 +2,7 @@
 function produceItem(tempObj) {
   for (i = 0; i < tempObj.length; i++) {
     var template = $('<a href="#!" class="content-project"><p class="content-project-deadline"></p><p class="content-project-subtasks"></p><h2></h2><p class="content-project-description"></p><div class="content-project-controls-container"><img class="content-project-controls-edit" src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTYuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgd2lkdGg9IjE2cHgiIGhlaWdodD0iMTZweCIgdmlld0JveD0iMCAwIDUyOC44OTkgNTI4Ljg5OSIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNTI4Ljg5OSA1MjguODk5OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+CjxnPgoJPHBhdGggZD0iTTMyOC44ODMsODkuMTI1bDEwNy41OSwxMDcuNTg5bC0yNzIuMzQsMjcyLjM0TDU2LjYwNCwzNjEuNDY1TDMyOC44ODMsODkuMTI1eiBNNTE4LjExMyw2My4xNzdsLTQ3Ljk4MS00Ny45ODEgICBjLTE4LjU0My0xOC41NDMtNDguNjUzLTE4LjU0My02Ny4yNTksMGwtNDUuOTYxLDQ1Ljk2MWwxMDcuNTksMTA3LjU5bDUzLjYxMS01My42MTEgICBDNTMyLjQ5NSwxMDAuNzUzLDUzMi40OTUsNzcuNTU5LDUxOC4xMTMsNjMuMTc3eiBNMC4zLDUxMi42OWMtMS45NTgsOC44MTIsNS45OTgsMTYuNzA4LDE0LjgxMSwxNC41NjVsMTE5Ljg5MS0yOS4wNjkgICBMMjcuNDczLDM5MC41OTdMMC4zLDUxMi42OXoiIGZpbGw9IiM2YTZhNmIiLz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8L3N2Zz4K" /><p class="content-project-controls-members"></p></div></a>');
-    template.find('.content-project-deadline').html('Deadline: ' + tempObj[i].date);
+    template.find('.content-project-deadline').html(tempObj[i].date);
     if(tempObj[i].tasks <= 1) {
       template.find('.content-project-subtasks').html(tempObj[i].tasks + " Task");
     }else {
@@ -22,19 +22,25 @@ function produceItem(tempObj) {
 
 // date sort params
 function compareDate(a, b) {
-  var amyDate = a.date.split("/");
-  if(amyDate[0][0] == '0') {
-    var aNewDate = new Date(amyDate[0][1]+","+amyDate[1]+","+amyDate[2]).getTime();
+  // debugger;
+  if(a.date == 'No Deadline') {
+    // return false;
   }else {
-    var aNewDate = new Date(amyDate[0]+","+amyDate[1]+","+amyDate[2]).getTime();
+    return new Date(b.date) - new Date(a.date);
   }
-  var bmyDate = b.date.split("/");
-  if(bmyDate[0][0] == '0') {
-    var bNewDate = new Date(bmyDate[0][1]+","+bmyDate[1]+","+bmyDate[2]).getTime();
-  }else {
-    var bNewDate = new Date(bmyDate[0]+","+bmyDate[1]+","+bmyDate[2]).getTime();
-  }
-  return ((aNewDate < bNewDate) ? -1 : ((aNewDate > bNewDate) ? 1 : 0));
+  // var amyDate = a.date.split("/");
+  // if(amyDate[0][0] == '0') {
+  //   var aNewDate = new Date(amyDate[0][1]+","+amyDate[1]+","+amyDate[2]).getTime();
+  // }else {
+  //   var aNewDate = new Date(amyDate[0]+","+amyDate[1]+","+amyDate[2]).getTime();
+  // }
+  // var bmyDate = b.date.split("/");
+  // if(bmyDate[0][0] == '0') {
+  //   var bNewDate = new Date(bmyDate[0][1]+","+bmyDate[1]+","+bmyDate[2]).getTime();
+  // }else {
+  //   var bNewDate = new Date(bmyDate[0]+","+bmyDate[1]+","+bmyDate[2]).getTime();
+  // }
+  // return ((aNewDate < bNewDate) ? -1 : ((aNewDate > bNewDate) ? 1 : 0));
 }
 
 // member sort params
@@ -64,13 +70,25 @@ function compareTitle(a, b) {
 
 function sortCardDate() {
   // grab obj list
+  // debugger;
   var tempObj = elementToObj();
+  var tempNoDeadlineObj = [];
+  var tempDeadlineObj = [];
+  for (var x = 0; x < tempObj.length; x++) {
+    if(tempObj[x].date == 'No Deadline') {
+      tempNoDeadlineObj.push(tempObj[x]);
+    }else {
+      tempDeadlineObj.push(tempObj[x]);
+    }
+  }
+  // debugger;
   // sort the list
-  tempObj.sort(compareDate);
+  tempDeadlineObj.sort(compareDate);
+  finalObj = tempDeadlineObj.concat(tempNoDeadlineObj);
   // Empty the items currently in the list
   $('.content-project-container').empty();
   // spit out the list to the browser
-  produceItem(tempObj)
+  produceItem(finalObj)
 }
 
 function sortCardMembers() {
@@ -113,7 +131,7 @@ function elementToObj() {
     tempObjArr.push({
       link: $(this).attr('href'),
       description: $(this).find('.content-project-description').html(),
-      date: $(this).find('.content-project-deadline').html().split(':')[1].trim(' '),
+      date: $(this).find('.content-project-deadline').html().trim(' '),
       tasks: parseInt($(this).find('.content-project-subtasks').html().split(' ')[0]),
       title: $(this).find('h2').html(),
       members: parseInt($(this).find('.content-project-controls-members').html().trim(' ').split(' ')[0])
@@ -123,6 +141,7 @@ function elementToObj() {
 }
 
 function sortCardRouter() {
+  // debugger;
   var args = [];
   for (var i = 0; i < arguments.length; ++i) args[i] = arguments[i];
   for (var i = 0; i < arguments.length; ++i) {

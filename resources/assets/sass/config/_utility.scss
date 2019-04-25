@@ -59,6 +59,14 @@
  float: left;
 }
 
+.content-see-all {
+  margin-top: 10px;
+  float: right;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 13px;
+  color: #39C1F0;
+}
+
 .content-title-add-new-icon {
   width: 20px;
   height: 20px;
@@ -212,17 +220,17 @@
       font-family: 'Open Sans', sans-serif;
       font-size: 13px;
       color: #ee3c46;
-      // float: left;
+      float: left;
     }
 
     .content-project-subtasks {
-      // margin-left: 10px;
-      margin-top: 5px;
+      margin-left: 10px;
+      margin-top: 25px;
       font-family: 'Open Sans', sans-serif;
       font-size: 13px;
       color: #5FBF62;
       // margin-right: 15px;
-      // float: left;
+      float: left;
     }
 
     h2 {
@@ -232,6 +240,7 @@
       color: #4d4c4d;
       padding-top: 10px;
       max-width: 190px;
+      line-height: 26px;
       // margin-left: 25px;
     }
 
